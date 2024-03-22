@@ -22,10 +22,12 @@ body {
 
 form {
     display: grid;
+    margin-top: 20%;
 	/* margin:10% auto 0 auto; */
 	padding:30px;
-	width:600px;
-	height:auto;
+	width:30%;
+	height:320px;
+    margin-left: auto;
 	overflow:hidden;
 	background:rgb(206, 15, 15);
 	border-radius:20px;
@@ -53,20 +55,12 @@ form input {
 }
 
 
-.center{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 29vw;
-    background: white;
-    border-radius: 10px;
-}
+
 
 .login{
     display: flex;
-    justify-content: right;
-    align-items: center;
+    flex-basis: 0;
+    height: auto;
     box-sizing: border-box;
     background: white;
     border-radius: 10px;
@@ -118,4 +112,13 @@ button[type=submit] {
 }
   
 
-  
+.custom-gif {
+    display: grid;
+    width: 67%;
+    height: 50vh;
+    margin-left: 5px;
+    margin-top: 5px;
+    border: 1px solid #000;
+    border-radius: 50px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}

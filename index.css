@@ -1,19 +1,35 @@
 body, input, textarea {
-    font-family: 'Montserrat';
+    font-family: "Montserrat";
 }
 
 body {
-    font-family: 'Montserrat' !important;
     margin: 0px;
+    min-width: 1280px;
+    font-family: "Montserrat";
 }
 
-.top-bar{
-    display: flex;
-    align-items: start;
-    height: 150px;
-    width: 100%;
-    margin: 0px;
-    background-image: linear-gradient(#14ef4e, rgba(255, 255, 255, 0))
+.enter-login{
+    display: block;
+    margin-bottom: 30px;
+	padding: 15px 10px;
+    width: max-content;
+    height: min-content;
+	border-radius: 20px;
+	text-decoration: none;
+    font-size: 40px;
+	font-weight: 500;
+	color: #101010;
+	text-align: center;
+    position: relative;
+    left: 50%;
+    transform: translate(-50%, 0);
+	border-radius: 20px;
+}
+
+.info-mezex{
+    margin-top: 35px;
+    color: #000;
+    font-size: 32px;
 }
 
 ::placeholder{
@@ -22,26 +38,25 @@ body {
 
 form {
     display: grid;
-    margin-top: 20%;
-	/* margin:10% auto 0 auto; */
-	padding:30px;
-	width:30%;
-	height:320px;
-    margin-left: auto;
+    margin-top: 50vh;
+    grid-area: 1 / 2 / 2 / 2;
+    align-self: center;
+	padding:20px;
+	width: calc(100% - 55px);
+	height: min-content;
 	overflow:hidden;
-	background:rgb(206, 15, 15);
 	border-radius:20px;
+
 }
 
 form input {
-	margin:15px 0;
-    margin-bottom: 10px;
-	padding:15px 10px;
-	width:550px;
+	margin:10px 0;
+	padding:5px 2px;
+	width:21.3vw;
+    height: 3.7vh;
 	outline:none;
-    font-size: 23px;
-	border:1px solid #bbb;
-	border-radius:20px;
+    font-size: 20px;
+	border:3px solid #40a15d;
 	display:inline-block;
 	-webkit-box-sizing:border-box;
 	   -moz-box-sizing:border-box;
@@ -51,34 +66,48 @@ form input {
 	    -ms-transition:0.2s ease all;
 	     -o-transition:0.2s ease all;
 	        transition:0.2s ease all;
-    background-image: linear-gradient(rgb(16, 185, 67), #06ff49)
+
 }
 
+.form_field{
+    display: grid;
+    margin-top: 5px;
+    color: #000;
+    justify-content: center;
+}
 
-
-
-.login{
-    display: flex;
+.container-login{
+    display: grid;
+    grid-template-columns: 62.5vw 37.5vw; 
+    grid-template-rows: 50vh ;
+    color: #40a15d;
     flex-basis: 0;
-    height: auto;
     box-sizing: border-box;
-    background: white;
-    border-radius: 10px;
+    background: rgb(255, 255, 255);
+}
+
+.custom-gif {
+    width: 62.5vw;
+    height: 49vh;
+    margin-left: 5px;
+    margin-top: 35px;
+    border: 1px solid #000;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
 }
 
 button[type=submit] {
-    color: #0f0f0f;
-    margin:15px 0;
-    margin-top: 30px;
-    margin-left: 120px;
-    width:300px;
-    height: 70px;
-	padding:15px 10px;
+    color: #ffffff;
+    margin-top: 40px;
+    width:21.3vw;
+    height: 4.6vh;
 	outline:none;
-    font-size: 25px;
+    font-size: 20px;
     font-family: "Montserrat";
 	border:1px solid #bbb;
-	border-radius:10px;
+	border-radius:5px;
+    position: relative;
+    left: 50%;
+    transform: translate(-50%, 0);
 	display:inline-block;
 	-webkit-box-sizing:border-box;
 	   -moz-box-sizing:border-box;
@@ -88,9 +117,8 @@ button[type=submit] {
 	    -ms-transition:0.2s ease all;
 	     -o-transition:0.2s ease all;
 	        transition:0.2s ease all;
-    background-image: linear-gradient(#40a15d, #11e54a)
+    background-color: #40a15d ;
 }
-
 
 .butsubmit {
 	display: inline-block;
@@ -111,14 +139,11 @@ button[type=submit] {
     background-image: linear-gradient(rgb(112, 62, 5), rgb(179, 140, 13))
 }
   
-
-.custom-gif {
-    display: grid;
-    width: 67%;
-    height: 50vh;
-    margin-left: 5px;
-    margin-top: 5px;
-    border: 1px solid #000;
-    border-radius: 50px;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+.vertical-line {
+    grid-area: 1 / 2 / 2 / 2;
+    width: 3px;
+    height: 100vh;
+    margin-left: 15px;
+    background-color: #40a15d;
+    transform: rotate(180deg);
 }

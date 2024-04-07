@@ -1,0 +1,88 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Мезекс инвестиции</title>
+
+    <link rel="shortcut icon" href= {% static 'invest/img/mezex_logo.png' %} type="image/png">
+
+	<link rel="stylesheet" href={% static 'invest/css/index.css' %}>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,600;1,600&display=swap" rel="stylesheet">
+</head>
+
+
+<body>
+    <div class = "container-login">
+        
+        <img src={% static 'invest/img/mezex.png' %} class="pic-logo">
+
+        <div class="info-mezex">
+
+            <div class="text1"> Что такое Мезекс</div>
+            <div class="text2"> MezEx — smart сервис для получения финансирования и инвестиционного дохода.
+                <br>
+                <br>
+                Наш сервис работает по принципам современных маркетплейсов, объединяя на своей платформе:
+            </div>
+
+            <ul>
+                <li class="text2">людей, которым необходимо финансирование - физических и юридических лиц;</li>
+                <li class="text2">финансовых специалистов и экспертов;</li>
+                <li class="text2">частных инвесторов и кредиторов, финансовые организации, банки, которые предоставляют финансирование.</li>
+            </ul>
+            <div class="text2">Мы учитываем интересы всех участников рынка кредитования, как заемщиков так и кредиторов, что позволяет всем сторонам получать самые выгодные условия.</div>
+        </div>
+        
+        <div class="vertical-line"></div>
+        
+
+{% block content %}
+
+<form method="post" action="{% url 'login' %}">
+{% csrf_token %}
+
+<form action="" method="post" class="form">
+  <div class="enter-login">Вход в личный кабинет</div>
+
+<div class="form_field">
+  <label for="user_name"><b>Логин</b></label>
+  <input type="username" name="username" font-weight=400px required>
+</div>
+
+<div class="form_field">
+  <label for="psw"><b>Пароль</b></label>
+  <input type="password" name="password"  autocomplete="off" required>
+</div>
+{% if form.errors %}
+  <p>Ваш логин или пароль неверный. Попробуйте ещё.</p>
+{% endif %}
+
+{% if next %}
+  {% if user.is_authenticated %}
+    <p>Your account doesn't have access to this page. To proceed,
+    please login with an account that has access.</p>
+  {% else %}
+    <p>Please login to see this page.</p>
+  {% endif %}
+{% endif %}
+<div style='text-align:center'>
+<input type="submit" value="Войти как инвестор" />
+</div>
+</form>
+
+
+{% endblock %}
+
+
+        <img src={% static 'invest/img/pic.png' %} class="pic-right-side">
+
+    </div>
+</body>
+</html>

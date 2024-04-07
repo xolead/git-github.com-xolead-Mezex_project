@@ -1,0 +1,5 @@
+Access
+
+{% if user.is_authenticated %}
+    <a href="{% url 'logout' %}">Выйти</a>
+{% endif %}

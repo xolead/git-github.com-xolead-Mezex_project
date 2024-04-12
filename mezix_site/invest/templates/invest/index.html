@@ -1,0 +1,58 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Мезекс инвестиции</title>
+
+    <link rel="shortcut icon" href= {% static 'invest/img/mezex_logo.png' %} type="image/png">
+
+	<link rel="stylesheet" href=" {% static 'invest/css/second.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,600;1,600&display=swap" rel="stylesheet">
+</head>
+
+
+<body>
+
+    <div class="container-overlay">
+        <div class="container-all">
+
+
+            <div class="container-header">
+                <div class="container-header-content">
+
+                    <div class="container-header-content-logo">
+                        <img src={% static 'invest/img/mezex_logo_white.png' %} class="pic-logo">
+                    </div>
+
+                    <div class="container-header-content-fio">
+
+                        <div class="container-header-content-fio-fio">Инвестор</div>
+                        {% if user.is_authenticated %}    
+                        <div class ="container-header-content-fio-out">
+                            <a href ="{% url 'logout' %}"><button type="button" class="button-out">
+                            <img src= {% static 'invest/img/button_out.webp' %} class="header-button-out-icon">
+                            </button>
+                            <a>
+                        </div>
+                        {% endif %}
+
+                    </div>
+                    
+                </div>
+            </div>
+            
+
+
+        </div>
+    </div>
+
+
+
+</body>

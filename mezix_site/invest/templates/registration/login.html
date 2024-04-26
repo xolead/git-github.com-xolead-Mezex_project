@@ -44,6 +44,10 @@
                 <input type="password" placeholder="Пароль" name="password"  autocomplete="off" required>
             </div>
 
+            {% if form.errors %}
+                <div class="text-error">Логин или пароль не подходит.</div>
+            {% endif %}
+
             <button type="submit">Войти как инвестор</button>
         </form>
             </div>

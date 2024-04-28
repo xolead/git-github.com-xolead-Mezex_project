@@ -67,7 +67,7 @@ body {
 .container-header-content-offers{
     margin-left: 25px;
     width: 100px;
-    margin-top: 23px;
+    margin-top: 24px;
 }
 
 .pic-bag{
@@ -76,8 +76,10 @@ body {
 }
 
 .pic-bag2{
-    width: 60px;
+    width: 55px;
     height: 45px;
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
     background-color: #D9D9D9;
 }
 
@@ -168,34 +170,18 @@ body {
    
 }
 
+.th-all{
+    -webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+    min-width: 200px;
+}
+
 .th-status{
     padding-left: 30px;
-    min-width: 200px;
-    
-}
-
-.th-fio{
-    min-width: 200px;
-}
-
-.th-type{
-    min-width: 200px;
-}
-
-.th-view{
-    min-width: 200px;
-}
-
-.th-sum{
-    min-width: 200px;
-}
-
-.th-name{
-    min-width: 200px;
-}
-
-.th-coverage{
-    min-width: 200px;
 }
 
 .tbody{
@@ -279,6 +265,7 @@ body {
 .green-triangle{
     display: flex;
     justify-content: center;
+    cursor: pointer;
 }
 
 :root {

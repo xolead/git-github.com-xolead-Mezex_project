@@ -269,15 +269,14 @@ body {
     border-radius: 8px;
 }
 
-.strelka{
+.sort-by-triangle{
     display: block;
-    height: 15px;
+    height: 9px;
     width: 15px;
     align-self: center;
-    margin-top: 4px;
 }
 
-.aboba{
+.green-triangle{
     display: flex;
     justify-content: center;
 }

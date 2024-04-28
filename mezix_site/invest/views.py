@@ -12,3 +12,7 @@ def home(request):
 def logout_view(request):
     logout(request)
     return HttpResponseRedirect('/accounts/login/')
+
+@login_required
+def offers(request):
+    return render(request, 'invest/offers.html')

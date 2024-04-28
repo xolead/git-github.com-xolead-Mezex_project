@@ -70,7 +70,7 @@ body {
 }
 
 .pic-bag2{
-    margin-left: 10px;
+    margin-left: 50px;
 }
 
 .container-header-content-fio{
@@ -101,8 +101,7 @@ body {
     cursor: pointer;
     align-items: center;
     display: flex;
-    width: 35px;
-    height: 35px;
+
     justify-content: center;
     text-align: center;
     padding: 9px 15px;
@@ -273,4 +272,34 @@ body {
 .aboba{
     display: flex;
     justify-content: center;
+}
+
+:root {
+    --shadowColor: hsl(0deg 25% 25% / 0.4);
+   }
+
+.grid-container{
+    margin: auto;
+    
+}
+
+.flex-container {
+    display: grid;
+    gap:50px;
+    grid-template-columns:repeat(7,200px) ;
+    padding: 0;
+    margin: 50px;
+    margin-left: 90px;
+    list-style: none;
+}
+
+.flex-item {
+    background: white;
+    display: flex;
+    filter: drop-shadow(0 0 0.5em var(--shadowColor));
+    padding: 5px;
+    width: 200px;
+    height: 287px;
+    line-height: 10px;
+    color: black;
 }

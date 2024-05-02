@@ -53,7 +53,7 @@
 
                     <div class="container-header-content-fio">
 
-                        <div class="container-header-content-fio-fio">Фамилия И.О.</div>
+                        <div class="container-header-content-fio-fio">{{ NameOfInvestor }}</div>
 
                         {% if user.is_authenticated %}   
                             <div class ="container-header-content-fio-out">
@@ -75,11 +75,11 @@
 
                 <div class="section-container-applications">
                         <div class="text-applications">Заявки</div>
-                    <table class="table-ebat">
+                    <table cellspacing="0"  class="table-ebat">
                     
                         <thead class="table-head">
 
-                            <tr  class="tr-no-white">
+                            <tr  class="th-white">
                                 <th class="th-all th-status"><div class="green-triangle">Статус заявки<img src= {% static 'invest/img/green-triangle.png'%} class="sort-by-triangle"></div></th>
                                 <th class="th-all th-fio"><div class="green-triangle">ФИО<img src= {% static 'invest/img/green-triangle.png'%} class="sort-by-triangle"></div></th>
                                 <th class="th-all th-type"><div class="green-triangle">Тип актива<img src= {% static 'invest/img/green-triangle.png'%} class="sort-by-triangle"></div></th>
@@ -92,165 +92,19 @@
                         </thead>
 
                         <tbody class="tbody">
+                            
+                            {% for info in infos %}
                             <tr class="tr-white">
-                                <td class="td-all td-status">Статус заявки</td>
-                                <td class="td-all td-fio">ФИО</td>
-                                <td class="td-all td-type">Тип актива</td>
-                                <td class="td-all td-view">Вид актива</td>
-                                <td class="td-all td-sum">Сумма</td>
-                                <td class="td-all td-name">Наименование</td>
+                                <td class="td-all td-status">{{ info.status }}</td>
+                                <td class="td-all td-fio">{{ info.FML }}</td>
+                                <td class="td-all td-type">{{  info.TypeActiv }}</td>
+                                <td class="td-all td-view">{{ info.ViewActiv }}</td>
+                                <td class="td-all td-sum">{{ info.sum }}руб.</td>
+                                <td class="td-all td-name">{{ info.name }}</td>
                                 <td class="td-all td-coverage">Покрытие</td>
                             </tr>
-
-                            <tr class="tr-no-white">
-                                <td class="td-all td-status">Статус заявки</td>
-                                <td class="td-all td-fio">ФИО</td>
-                                <td class="td-all td-type">Тип актива</td>
-                                <td class="td-all td-view">Вид актива</td>
-                                <td class="td-all td-sum">Сумма</td>
-                                <td class="td-all td-name">Наименование</td>
-                                <td class="td-all td-coverage">Покрытие</td>
-                            </tr>
-
-                            <tr class="tr-white">
-                                <td class="td-all td-status">abobaabobaabobaabobaaboba</td>
-                                <td class="td-all td-fio">abiba dasdasdasdasdadasdasdasdas</td>
-                                <td class="td-all td-type">abyba</td>
-                                <td class="td-all td-view">Вид активаabobaabobaabobaabobaabobaabobaabobaabobaabobaabobaвфы</td>
-                                <td class="td-all td-sum">Сумма</td>
-                                <td class="td-all td-name">Наименование</td>
-                                <td class="td-all td-coverage">Покрытие</td>
-                            </tr>
-
-                            <tr class="tr-no-white">
-                                <td class="td-all td-status">aboba</td>
-                                <td class="td-all td-fio">abiba dasdasdasdasdadasdasdasdas</td>
-                                <td class="td-all td-type">abyba</td>
-                                <td class="td-all td-view">Вид актива</td>
-                                <td class="td-all td-sum">Сумма</td>
-                                <td class="td-all td-name">Наименование</td>
-                                <td class="td-all td-coverage">Покрытие</td>
-                            </tr>
-
-                            <tr class="tr-white">
-                                <td class="td-all td-status">aboba</td>
-                                <td class="td-all td-fio">abiba dasdasdasdasdadasdasdasdas</td>
-                                <td class="td-all td-type">abyba</td>
-                                <td class="td-all td-view">Вид актива</td>
-                                <td class="td-all td-sum">Сумма</td>
-                                <td class="td-all td-name">Наименование</td>
-                                <td class="td-all td-coverage">Покрытие</td>
-                            </tr>
-
-                            <tr class="tr-no-white">
-                                <td class="td-all td-status">aboba</td>
-                                <td class="td-all td-fio">abiba dasdasdasdasdadasdasdasdas</td>
-                                <td class="td-all td-type">abyba</td>
-                                <td class="td-all td-view">Вид актива</td>
-                                <td class="td-all td-sum">Сумма</td>
-                                <td class="td-all td-name">Наименование</td>
-                                <td class="td-all td-coverage">Покрытие</td>
-                            </tr>
-
-                            <tr class="tr-white">
-                                <td class="td-all td-status">aboba</td>
-                                <td class="td-all td-fio">abiba dasdasdasdasdadasdasdasdas</td>
-                                <td class="td-all td-type">abyba</td>
-                                <td class="td-all td-view">Вид актива</td>
-                                <td class="td-all td-sum">Сумма</td>
-                                <td class="td-all td-name">Наименование</td>
-                                <td class="td-all td-coverage">Покрытие</td>
-                            </tr>
-
-                            <tr class="tr-no-white">
-                                <td class="td-all td-status">aboba</td>
-                                <td class="td-all td-fio">abiba dasdasdasdasdadasdasdasdas</td>
-                                <td class="td-all td-type">abyba</td>
-                                <td class="td-all td-view">Вид актива</td>
-                                <td class="td-all td-sum">Сумма</td>
-                                <td class="td-all td-name">Наименование</td>
-                                <td class="td-all td-coverage">Покрытие</td>
-                            </tr>
-
-                            <tr class="tr-white">
-                                <td class="td-all td-status">aboba</td>
-                                <td class="td-all td-fio">abiba dasdasdasdasdadasdasdasdas</td>
-                                <td class="td-all td-type">abyba</td>
-                                <td class="td-all td-view">Вид актива</td>
-                                <td class="td-all td-sum">Сумма</td>
-                                <td class="td-all td-name">Наименование</td>
-                                <td class="td-all td-coverage">Покрытие</td>
-                            </tr>
-
-                            <tr class="tr-no-white">
-                                <td class="td-all td-status">aboba</td>
-                                <td class="td-all td-fio">abiba dasdasdasdasdadasdasdasdas</td>
-                                <td class="td-all td-type">abyba</td>
-                                <td class="td-all td-view">Вид актива</td>
-                                <td class="td-all td-sum">Сумма</td>
-                                <td class="td-all td-name">Наименование</td>
-                                <td class="td-all td-coverage">Покрытие</td>
-                            </tr>
-
-                            <tr class="tr-white">
-                                <td class="td-all td-status">aboba</td>
-                                <td class="td-all td-fio">abiba dasdasdasdasdadasdasdasdas</td>
-                                <td class="td-all td-type">abyba</td>
-                                <td class="td-all td-view">Вид актива</td>
-                                <td class="td-all td-sum">Сумма</td>
-                                <td class="td-all td-name">Наименование</td>
-                                <td class="td-all td-coverage">Покрытие</td>
-                            </tr>
-
-                            <tr class="tr-no-white">
-                                <td class="td-all td-status">aboba</td>
-                                <td class="td-all td-fio">abiba dasdasdasdasdadasdasdasdas</td>
-                                <td class="td-all td-type">abyba</td>
-                                <td class="td-all td-view">Вид актива</td>
-                                <td class="td-all td-sum">Сумма</td>
-                                <td class="td-all td-name">Наименование</td>
-                                <td class="td-all td-coverage">Покрытие</td>
-                            </tr>
-
-                            <tr class="tr-white">
-                                <td class="td-all td-status">aboba</td>
-                                <td class="td-all td-fio">abiba dasdasdasdasdadasdasdasdas</td>
-                                <td class="td-all td-type">abyba</td>
-                                <td class="td-all td-view">Вид актива</td>
-                                <td class="td-all td-sum">Сумма</td>
-                                <td class="td-all td-name">Наименование</td>
-                                <td class="td-all td-coverage">Покрытие</td>
-                            </tr>
-
-                            <tr class="tr-no-white">
-                                <td class="td-all td-status">aboba</td>
-                                <td class="td-all td-fio">abiba dasdasdasdasdadasdasdasdas</td>
-                                <td class="td-all td-type">abyba</td>
-                                <td class="td-all td-view">Вид актива</td>
-                                <td class="td-all td-sum">Сумма</td>
-                                <td class="td-all td-name">Наименование</td>
-                                <td class="td-all td-coverage">Покрытие</td>
-                            </tr>
-
-                            <tr class="tr-white">
-                                <td class="td-all td-status">aboba</td>
-                                <td class="td-all td-fio">abiba dasdasdasdasdadasdasdasdas</td>
-                                <td class="td-all td-type">abyba</td>
-                                <td class="td-all td-view">Вид актива</td>
-                                <td class="td-all td-sum">Сумма</td>
-                                <td class="td-all td-name">Наименование</td>
-                                <td class="td-all td-coverage">Покрытие</td>
-                            </tr>
-
-                            <tr class="tr-no-white">
-                                <td class="td-all td-status">aboba</td>
-                                <td class="td-all td-fio">abiba dasdasdasdasdadasdasdasdas</td>
-                                <td class="td-all td-type">abyba</td>
-                                <td class="td-all td-view">Вид актива</td>
-                                <td class="td-all td-sum">Сумма</td>
-                                <td class="td-all td-name">Наименование</td>
-                                <td class="td-all td-coverage">Покрытие</td>
-                            </tr>
+                            {% endfor %}
+                            
                             
                         </tbody>
 

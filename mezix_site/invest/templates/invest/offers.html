@@ -52,7 +52,7 @@
 
                     <div class="container-header-content-fio">
 
-                        <div class="container-header-content-fio-fio">Фамилия И.О.</div>
+                        <div class="container-header-content-fio-fio">{{ request.user.username }}</div>
 
                         {% if user.is_authenticated %}   
                             <div class ="container-header-content-fio-out">
@@ -89,12 +89,12 @@
 
                                 
                                 <div class="block-type">
-                                    <div class="text-type">Тип актива: <span class="text-type-view-more">ABYBA-LYPApep-LYABYpepaABYBA-LYPApepaABYBA-LYPApepaABYBA-LYPApepa</span></div>
+                                    <div class="text-type">Тип актива: <span class="text-type-view-more">ABYBA-LYPAppepaABYBAABYBA-LYPApepaABYBAABYBA-LYPApepaABYBAABYBA-LYPApepaABYBAABYBA-LYPApepaABYBAABYBA-LYPApepaABYBAABYBA-LYPApepaABYBAABYBA-LYPApepaABYBAABYBA-LYPApepaABYBAABYBA-LYep-LYABYpepaABYBA-LYPApepaABYBA-LYPApepaABYBA-LYPApepa</span></div>
                                     
                                 </div>
                                 
                                 <div class="block-view">
-                                    <div class="text-view">Вид актива: <span class="text-type-view-more">ABYBA-LYPApepaABYBA</span></div>
+                                    <div class="text-view">Вид актива: <span class="text-type-view-more">ABYBA-LYPApepaABYBAABYBA-LYPApepaABYBAABYBA-LYPApepaABYBAABYBA-LYPApepaABYBAABYBA-LYPApepaABYBAABYBA-LYPApepaABYBAABYBA-LYPApepaABYBAABYBA-LYPApepaABYBAABYBA-LYPApepaABYBAABYBA-LYPApepaABYBA</span></div>
                                 </div>
                                 
 
@@ -134,7 +134,7 @@
                                 <!--
                                     Тут картинку надо выбрать в зависимости от статуса (зеленая или красная точка)
                                 -->
-                                <div class="text-status"><img src= {% static 'invest/img/green_dot.png' %} class="pic-status">на рассмотрении</div>
+                                <div class="text-status"><img src= {% static 'invest/img/yellow_dot.png' %} class="pic-status">на рассмотрении</div>
                                 <div class="green-line"></div>
 
                                 

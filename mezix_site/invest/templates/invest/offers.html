@@ -11,7 +11,7 @@
 
     <link rel="shortcut icon" href= {% static 'invest/img/mezex_logo.png' %} type="image/png">
 
-	<link rel="stylesheet" href={% static 'invest/css/second.css' %}>
+	<link rel="stylesheet" href={% static 'invest/css/offers_create.css' %}>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,600;1,600&display=swap" rel="stylesheet">
@@ -52,12 +52,18 @@
 
                     <div class="container-header-content-fio">
 
+                        <div class="container-header-content-create">
+                            <a href ="{% url 'create' %}">
+                                <img src={% static 'invest/img/applic.png' %} class="pic-create">
+                            </a>
+                        </div>
+
                         <div class="container-header-content-fio-fio">{{ request.user.username }}</div>
 
                         {% if user.is_authenticated %}   
                             <div class ="container-header-content-fio-out">
                                 <a href ="{% url 'logout' %}"><button type="button" class="button-out">
-                                <img src= {% static 'invest/img/button_out.webp' %} class="header-button-out-icon">
+                                <img src= {% static 'invest/img/button_out.png' %} class="header-button-out-icon">
                                 </button>
                                 </a>
                             </div>
@@ -76,225 +82,92 @@
                         <div class="text-applications">Предложения</div>
 
                     <div class="grid-container">  
-                    <div>
+                    
                         <div class="flex-container">
                         
                             <div class="flex-item">
-                                <div class="text-fio">Фамилия И.О.</div>
-                                <!--
-                                    Тут картинку надо выбрать в зависимости от статуса (зеленая или красная точка)
-                                -->
-                                <div class="text-status"><img src= {% static 'invest/img/green_dot.png' %} class="pic-status">на рассмотрении</div>
-                                <div class="green-line"></div>
+                                <div class="text-fio">Акакий С.Н.</div>
 
+                                <div class="text-status"><img src= {% static 'invest/img/green_dot.png' %} class="pic-status">Исполнено</div>
+                                <div class="green-line"></div>
                                 
                                 <div class="block-type">
-                                    <div class="text-type">Тип актива: <span class="text-type-view-more">ABYBA-LYPAppepaABYBAABYBA-LYPApepaABYBAABYBA-LYPApepaABYBAABYBA-LYPApepaABYBAABYBA-LYPApepaABYBAABYBA-LYPApepaABYBAABYBA-LYPApepaABYBAABYBA-LYPApepaABYBAABYBA-LYPApepaABYBAABYBA-LYep-LYABYpepaABYBA-LYPApepaABYBA-LYPApepaABYBA-LYPApepa</span></div>
-                                    
+                                    <div class="text-type">Тип актива: <span class="text-type-view-more">Дом классный такой на море</span></div>
                                 </div>
                                 
                                 <div class="block-view">
-                                    <div class="text-view">Вид актива: <span class="text-type-view-more">ABYBA-LYPApepaABYBAABYBA-LYPApepaABYBAABYBA-LYPApepaABYBAABYBA-LYPApepaABYBAABYBA-LYPApepaABYBAABYBA-LYPApepaABYBAABYBA-LYPApepaABYBAABYBA-LYPApepaABYBAABYBA-LYPApepaABYBAABYBA-LYPApepaABYBA</span></div>
+                                    <div class="text-view">Вид актива: <span class="text-type-view-more">Не, ну прям вах какой дом</span></div>
+                                </div>
+
+                                <div class="green-line green-line-down"></div>
+                                <div class="block-sum">
+                                    <div class="text-sum">Сумма: <span class="text-sum-digits">140 000 000руб.</span></div>
+                                </div>
+                            </div>
+
+                            <div class="flex-item">
+                                <div class="text-fio">Вулканий П.А.</div>
+
+                                <div class="text-status"><img src= {% static 'invest/img/yellow_dot.png' %} class="pic-status">На рассмотрении</div>
+                                <div class="green-line"></div>
+                                
+                                <div class="block-type">
+                                    <div class="text-type">Тип актива: <span class="text-type-view-more">Дом на море</span></div>
                                 </div>
                                 
+                                <div class="block-view">
+                                    <div class="text-view">Вид актива: <span class="text-type-view-more">Просто какой-то дом</span></div>
+                                </div>
 
                                 <div class="green-line green-line-down"></div>
                                 <div class="block-sum">
                                     <div class="text-sum">Сумма: <span class="text-sum-digits">140 000руб.</span></div>
                                 </div>
-
                             </div>
+
                             <div class="flex-item">
-                                <div class="text-fio">Фамилия И.О.</div>
-                                <!--
-                                    Тут картинку надо выбрать в зависимости от статуса (зеленая или красная точка)
-                                -->
+                                <div class="text-fio">Агафонов В.В.</div>
+
                                 <div class="text-status"><img src= {% static 'invest/img/red_dot.png' %} class="pic-status">Отказано</div>
                                 <div class="green-line"></div>
-
                                 
                                 <div class="block-type">
-                                    <div class="text-type">Тип актива: <span class="text-type-view-more">ABYBA-LYPApepaABYBA-LYPApepaABYBA-LYPApepaAYBA-LYPApepaABYBA-LYPApepaABYBYBA-LYPApepaABYBA-LYPApepaABYBYBA-LYPApepaABYBA-LYPApepaABYBYBA-LYPApepaABYBA-LYPApepaABYBYBA-LYPApepaABYBA-LYPApepaABYBYBA-LYPApepaABYBA-LYPApepaABYBBYBA-LYPApepaABYBA-LYPApepaABYBA-LYPApepaABYBA-LYPApepa</span></div>
-                                    
+                                    <div class="text-type">Тип актива: <span class="text-type-view-more">Дом в Инте</span></div>
                                 </div>
                                 
                                 <div class="block-view">
-                                    <div class="text-view">Вид актива: <span class="text-type-view-more">ABYBA-LYPApepaABYBA</span></div>
+                                    <div class="text-view">Вид актива: <span class="text-type-view-more">Не, ну прям вообще не вах какой дом</span></div>
                                 </div>
-                                
 
                                 <div class="green-line green-line-down"></div>
                                 <div class="block-sum">
-                                    <div class="text-sum">Сумма: <span class="text-sum-digits">100 140 000руб.</span></div>
+                                    <div class="text-sum">Сумма: <span class="text-sum-digits">140руб.</span></div>
                                 </div>
-
                             </div>
+
                             <div class="flex-item">
-                                <div class="text-fio">Фамилия И.О.</div>
-                                <!--
-                                    Тут картинку надо выбрать в зависимости от статуса (зеленая или красная точка)
-                                -->
-                                <div class="text-status"><img src= {% static 'invest/img/yellow_dot.png' %} class="pic-status">на рассмотрении</div>
-                                <div class="green-line"></div>
+                                <div class="text-fio">Агафонов В.В.</div>
 
-                                
-                                <div class="block-type">
-                                    <div class="text-type">Тип актива: <span class="text-type-view-more">ABYBA-LYPApep-LYABYpepaABYBA-LYPApepaABYBA-LYPApepaABYBA-LYPApepa</span></div>
-                                    
-                                </div>
-                                
-                                <div class="block-view">
-                                    <div class="text-view">Вид актива: <span class="text-type-view-more">ABYBA-LYPApepaABYBA</span></div>
-                                </div>
-                                
-
-                                <div class="green-line green-line-down"></div>
-                                <div class="block-sum">
-                                    <div class="text-sum">Сумма: <span class="text-sum-digits">140 000руб.</span></div>
-                                </div>
-
-                            </div>
-                            <div class="flex-item">
-                                <div class="text-fio">Фамилия И.О.</div>
-                                <!--
-                                    Тут картинку надо выбрать в зависимости от статуса (зеленая или красная точка)
-                                -->
                                 <div class="text-status"><img src= {% static 'invest/img/red_dot.png' %} class="pic-status">Отказано</div>
                                 <div class="green-line"></div>
-
                                 
                                 <div class="block-type">
-                                    <div class="text-type">Тип актива: <span class="text-type-view-more">ABYBA-LYPApepaABYBA-LYPApepaABYBA-LYPApepaAYBA-LYPApepaABYBA-LYPApepaABYBYBA-LYPApepaABYBA-LYPApepaABYBYBA-LYPApepaABYBA-LYPApepaABYBYBA-LYPApepaABYBA-LYPApepaABYBYBA-LYPApepaABYBA-LYPApepaABYBYBA-LYPApepaABYBA-LYPApepaABYBBYBA-LYPApepaABYBA-LYPApepaABYBA-LYPApepaABYBA-LYPApepa</span></div>
-                                    
+                                    <div class="text-type">Тип актива: <span class="text-type-view-more">Дом в Инте Дом в Инте Дом в Инте Дом в Инте Дом в Инте Дом в Инте Дом в Инте Дом в Инте Дом в Инте Дом в Инте Дом в Инте Дом в Инте Дом в Инте Дом в Инте Дом в Инте Дом в Инте Дом в Инте Дом в Инте Дом в Инте Дом в Инте Дом в Инте Дом в Инте Дом в Инте Дом в Инте Дом в Инте Дом в Инте Дом в Инте Дом в Инте Дом в Инте Дом в Инте Дом в Инте Дом в Инте Дом в Инте Дом в Инте Дом в Инте Дом в Инте Дом в Инте Дом в Инте Дом в Инте Дом в Инте </span></div>
                                 </div>
                                 
                                 <div class="block-view">
-                                    <div class="text-view">Вид актива: <span class="text-type-view-more">ABYBA-LYPApepaABYBA</span></div>
+                                    <div class="text-view">Вид актива: <span class="text-type-view-more">Не, ну прям вообще не вах какой дом Не, ну прям вообще не вах какой дом Не, ну прям вообще не вах какой дом Не, ну прям вообще не вах какой дом Не, ну прям вообще не вах какой дом Не, ну прям вообще не вах какой дом Не, ну прям вообще не вах какой дом Не, ну прям вообще не вах какой дом Не, ну прям вообще не вах какой дом Не, ну прям вообще не вах какой дом Не, ну прям вообще не вах какой дом Не, ну прям вообще не вах какой дом Не, ну прям вообще не вах какой дом Не, ну прям вообще не вах какой дом </span></div>
                                 </div>
-                                
 
                                 <div class="green-line green-line-down"></div>
                                 <div class="block-sum">
-                                    <div class="text-sum">Сумма: <span class="text-sum-digits">100 140 000руб.</span></div>
+                                    <div class="text-sum">Сумма: <span class="text-sum-digits">140руб.</span></div>
                                 </div>
-
                             </div>
-                            <div class="flex-item">
-                                <div class="text-fio">Фамилия И.О.</div>
-                                <!--
-                                    Тут картинку надо выбрать в зависимости от статуса (зеленая или красная точка)
-                                -->
-                                <div class="text-status"><img src= {% static 'invest/img/green_dot.png' %} class="pic-status">на рассмотрении</div>
-                                <div class="green-line"></div>
 
-                                
-                                <div class="block-type">
-                                    <div class="text-type">Тип актива: <span class="text-type-view-more">ABYBA-LYPApep-LYABYpepaABYBA-LYPApepaABYBA-LYPApepaABYBA-LYPApepa</span></div>
-                                    
-                                </div>
-                                
-                                <div class="block-view">
-                                    <div class="text-view">Вид актива: <span class="text-type-view-more">ABYBA-LYPApepaABYBA</span></div>
-                                </div>
-                                
-
-                                <div class="green-line green-line-down"></div>
-                                <div class="block-sum">
-                                    <div class="text-sum">Сумма: <span class="text-sum-digits">140 000руб.</span></div>
-                                </div>
-
-                            </div>
-                            <div class="flex-item">
-                                <div class="text-fio">Фамилия И.О.</div>
-                                <!--
-                                    Тут картинку надо выбрать в зависимости от статуса (зеленая или красная точка)
-                                -->
-                                <div class="text-status"><img src= {% static 'invest/img/red_dot.png' %} class="pic-status">Отказано</div>
-                                <div class="green-line"></div>
-
-                                
-                                <div class="block-type">
-                                    <div class="text-type">Тип актива: <span class="text-type-view-more">ABYBA-LYPApepaABYBA-LYPApepaABYBA-LYPApepaAYBA-LYPApepaABYBA-LYPApepaABYBYBA-LYPApepaABYBA-LYPApepaABYBYBA-LYPApepaABYBA-LYPApepaABYBYBA-LYPApepaABYBA-LYPApepaABYBYBA-LYPApepaABYBA-LYPApepaABYBYBA-LYPApepaABYBA-LYPApepaABYBBYBA-LYPApepaABYBA-LYPApepaABYBA-LYPApepaABYBA-LYPApepa</span></div>
-                                    
-                                </div>
-                                
-                                <div class="block-view">
-                                    <div class="text-view">Вид актива: <span class="text-type-view-more">ABYBA-LYPApepaABYBA</span></div>
-                                </div>
-                                
-
-                                <div class="green-line green-line-down"></div>
-                                <div class="block-sum">
-                                    <div class="text-sum">Сумма: <span class="text-sum-digits">100 140 000руб.</span></div>
-                                </div>
-
-                            </div>
-                            <div class="flex-item">
-                                <div class="text-fio">Фамилия И.О.</div>
-                                <!--
-                                    Тут картинку надо выбрать в зависимости от статуса (зеленая или красная точка)
-                                -->
-                                <div class="text-status"><img src= {% static 'invest/img/green_dot.png' %} class="pic-status">на рассмотрении</div>
-                                <div class="green-line"></div>
-
-                                
-                                <div class="block-type">
-                                    <div class="text-type">Тип актива: <span class="text-type-view-more">ABYBA-LYPApep-LYABYpepaABYBA-LYPApepaABYBA-LYPApepaABYBA-LYPApepa</span></div>
-                                    
-                                </div>
-                                
-                                <div class="block-view">
-                                    <div class="text-view">Вид актива: <span class="text-type-view-more">ABYBA-LYPApepaABYBA</span></div>
-                                </div>
-                                
-
-                                <div class="green-line green-line-down"></div>
-                                <div class="block-sum">
-                                    <div class="text-sum">Сумма: <span class="text-sum-digits">140 000руб.</span></div>
-                                </div>
-
-                            </div>
-                            <div class="flex-item">
-                                <div class="text-fio">Фамилия И.О.</div>
-                                <!--
-                                    Тут картинку надо выбрать в зависимости от статуса (зеленая или красная точка)
-                                -->
-                                <div class="text-status"><img src= {% static 'invest/img/red_dot.png' %} class="pic-status">Отказано</div>
-                                <div class="green-line"></div>
-
-                                
-                                <div class="block-type">
-                                    <div class="text-type">Тип актива: <span class="text-type-view-more">ABYBA-LYPApepaABYBA-LYPApepaABYBA-LYPApepaAYBA-LYPApepaABYBA-LYPApepaABYBYBA-LYPApepaABYBA-LYPApepaABYBYBA-LYPApepaABYBA-LYPApepaABYBYBA-LYPApepaABYBA-LYPApepaABYBYBA-LYPApepaABYBA-LYPApepaABYBYBA-LYPApepaABYBA-LYPApepaABYBBYBA-LYPApepaABYBA-LYPApepaABYBA-LYPApepaABYBA-LYPApepa</span></div>
-                                    
-                                </div>
-                                
-                                <div class="block-view">
-                                    <div class="text-view">Вид актива: <span class="text-type-view-more">ABYBA-LYPApepaABYBA</span></div>
-                                </div>
-                                
-
-                                <div class="green-line green-line-down"></div>
-                                <div class="block-sum">
-                                    <div class="text-sum">Сумма: <span class="text-sum-digits">100 140 000руб.</span></div>
-                                </div>
-
-                            </div>
-                            
-                        
-                            
-
-                        
                         </div>
-                    </div>  
-            </div>
-
+                    
                     </div>
-
-
-
-
-
-
 
                 </div>
 

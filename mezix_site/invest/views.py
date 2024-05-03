@@ -54,3 +54,7 @@ def logout_view(request):
 @login_required
 def offers(request):
     return render(request, 'invest/offers.html')
+
+@login_required
+def create(request):
+    return render(request, 'invest/create.html')

@@ -57,19 +57,17 @@ body {
 
 .container-header-content-applications{
     display: flex;
-    justify-content: flex-start;
-    width: 50px;
+    justify-content: center;
     height: 51px;
     margin-left: 30px;
-    margin-top: 15px;
+    align-self: center;
+    margin-top: 1px;
 }
 
 .container-header-content-offers{
     margin-left: 25px;
-    width: 100px;
-    margin-top: 24px;
     height: 52px;
-
+    margin-top: 2px;
 }
 
 .container-header-content-create{
@@ -86,11 +84,11 @@ body {
 }
 
 .pic-bag2{
-    width: 52px;
-    height: 46px;
+    width: 75px;
+    height: 50px;
     border-top-right-radius: 5px;
     border-top-left-radius: 5px;
-    background-color: #D9D9D9;
+    background-color: #232138;
 }
 
 .pic-create{
@@ -117,8 +115,8 @@ body {
 }
 
 .header-button-out-icon{
-    width: 35px;
-    height: 35px;
+    width: 50px;
+    height: 55px;
 }
 
 .text-out{
@@ -203,11 +201,10 @@ body {
 }
 
 #strelka-vlevo{
-    rotate: 90deg;
-    width: 20px;
-    height: 20px;
+    width: 30px;
+    height: 30px;
     margin-left: -5px;
-    
+    margin-top: -1px;
 }
 
 .table-ebat{
@@ -372,6 +369,7 @@ body {
     grid-template-columns: repeat(2, 160px);
     display: grid;
     gap: 30px;
+    row-gap: 25px;
     margin: 0 20px 10px;
     margin-top: 45px;
     height: 15%;

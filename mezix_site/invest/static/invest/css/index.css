@@ -348,7 +348,7 @@ body {
     justify-content: center;
 }
 
-#popup{
+.popup{
     z-index: -1; /* -1 - не показывает
                      1 - показывает*/
     top: 64px;

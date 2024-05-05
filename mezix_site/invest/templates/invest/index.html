@@ -91,7 +91,7 @@
                             
                         </div>
 
-                        <div id="popup" style="z-index: -1;">
+                        <div id="popup1" class ="popup" style="z-index: -1;">
                             <div class="popup_information">
 
 
@@ -117,18 +117,6 @@
                                     </div>
                                 </div>
 
-                                <div class="text-extra-info-main">Основные параметры:
-                                    <div class="container-extra-info">
-                                        <img src= {% static 'invest/img/pic-no-violation.jpeg'%} class="pic-violation">
-                                        <div class="text-extra-info-all">Рыночная цена: 2 450 000 руб.</div>
-                                    </div>
-                                    <div class="container-extra-info">
-                                        <img src= {% static 'invest/img/pic-no-violation.jpeg'%} class="pic-violation">
-                                        <div class="text-extra-info-all">Покрытие: </div>
-                                    </div>
-                                </div>
-
-                            
                             </div>
         
                             <div class="popup_buttons">
@@ -139,6 +127,24 @@
                             </div>
         
                         </div>
+                        <div id="popup2" class ="popup" style="z-index: -1;">
+                            <div class="popup_information">
+
+
+                                aboba
+
+                            </div>
+        
+                            <div class="popup_buttons">
+                                <button class="button_for_information">Подробный отчёт</button>
+                                <button class="button_for_information">Дополнительная информация</button>
+                                <button onclick="deletes()" class="button_accept">Предложить</button>
+                                <button onclick="deletes()" id="button_decline">Отказаться</button>
+                            </div>
+        
+                        </div>
+
+                        
 
                     <table cellspacing="0"  class="table-ebat">
                     
@@ -173,8 +179,8 @@
                             {% for info in infos %}
                             <tr onclick="get_id_delete(event)" class="tr-white" id="2">
                                 <td id="2" class="td-all td-status">{{ info.status }}</td>
-                                <td class="td-all td-fio">{{ info.FML }}</td>
-                                <td class="td-all td-type">{{  info.TypeActiv }}</td>
+                                <td id="2" class="td-all td-fio">{{ info.FML }}</td>
+                                <td id="2" class="td-all td-type">{{  info.TypeActiv }}</td>
                                 <td class="td-all td-view">{{ info.ViewActiv }}</td>
                                 <td class="td-all td-sum">{{ info.sum }}руб.</td>
                                 <td class="td-all td-name">{{ info.name }}</td>

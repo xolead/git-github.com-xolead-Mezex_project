@@ -91,16 +91,15 @@
                             
                         </div>
 
-                        <div id="popup">
-
+                        <div id="popup" style="z-index: -1;">
                             <div class="popup_information">
+
 
                                 <div class="text-extra-info-main">Лица/ФССП:
                                     <div class="container-extra-info">
                                         <img src= {% static 'invest/img/pic-violation.jpeg'%} class="pic-violation">
                                         <div class="text-extra-info-all">Судебные приставы</div>
                                     </div>
-
                                     <div class="container-extra-info">
                                         <img src= {% static 'invest/img/pic-no-violation.jpeg'%} class="pic-violation">
                                         <div class="text-extra-info-all">Банкротство</div>
@@ -112,7 +111,6 @@
                                         <img src= {% static 'invest/img/pic-no-violation.jpeg'%} class="pic-violation">
                                         <div class="text-extra-info-all">Залог</div>
                                     </div>
-
                                     <div class="container-extra-info">
                                         <img src= {% static 'invest/img/pic-violation.jpeg'%} class="pic-violation">
                                         <div class="text-extra-info-all">Обременение</div>
@@ -124,22 +122,20 @@
                                         <img src= {% static 'invest/img/pic-no-violation.jpeg'%} class="pic-violation">
                                         <div class="text-extra-info-all">Рыночная цена: 2 450 000 руб.</div>
                                     </div>
-
                                     <div class="container-extra-info">
                                         <img src= {% static 'invest/img/pic-no-violation.jpeg'%} class="pic-violation">
                                         <div class="text-extra-info-all">Покрытие: </div>
                                     </div>
                                 </div>
 
-                                
-
+                            
                             </div>
         
                             <div class="popup_buttons">
                                 <button class="button_for_information">Подробный отчёт</button>
                                 <button class="button_for_information">Дополнительная информация</button>
-                                <button class="button_accept">Предложить</button>
-                                <button class="button_decline">Отказаться</button>
+                                <button onclick="deletes()" class="button_accept">Предложить</button>
+                                <button onclick="deletes()" id="button_decline">Отказаться</button>
                             </div>
         
                         </div>
@@ -163,206 +159,20 @@
                         <tbody class="tbody">
                             
                             {% for info in infos %}
-                            <tr class="tr-white">
-                                <td class="td-all td-status">{{ info.status }}</td>
-                                <td class="td-all td-fio">{{ info.FML }}</td>
-                                <td class="td-all td-type">{{  info.TypeActiv }}</td>
-                                <td class="td-all td-view">{{ info.ViewActiv }}</td>
-                                <td class="td-all td-sum">{{ info.sum }}руб.</td>
-                                <td class="td-all td-name">{{ info.name }}</td>
-                                <td class="td-all td-coverage">Покрытие</td>
+                            <tr onclick="get_id_delete(event)" id="1" class="tr-white" style="cursor: pointer;">
+                                <td id="1" class="td-all td-status">{{ info.status }}</td>
+                                <td id="1" class="td-all td-fio">{{ info.FML }}</td>
+                                <td id="1" class="td-all td-type">{{  info.TypeActiv }}</td>
+                                <td id="1" class="td-all td-view">{{ info.ViewActiv }}</td>
+                                <td id="1" class="td-all td-sum">{{ info.sum }}руб.</td>
+                                <td id="1" class="td-all td-name">{{ info.name }}</td>
+                                <td id="1" class="td-all td-coverage">Покрытие</td>
                             </tr>
                             {% endfor %}
+
                             {% for info in infos %}
-                            <tr class="tr-white">
-                                <td class="td-all td-status">{{ info.status }}</td>
-                                <td class="td-all td-fio">{{ info.FML }}</td>
-                                <td class="td-all td-type">{{  info.TypeActiv }}</td>
-                                <td class="td-all td-view">{{ info.ViewActiv }}</td>
-                                <td class="td-all td-sum">{{ info.sum }}руб.</td>
-                                <td class="td-all td-name">{{ info.name }}</td>
-                                <td class="td-all td-coverage">Покрытие</td>
-                            </tr>
-                            {% endfor %}
-                            {% for info in infos %}
-                            <tr class="tr-white">
-                                <td class="td-all td-status">{{ info.status }}</td>
-                                <td class="td-all td-fio">{{ info.FML }}</td>
-                                <td class="td-all td-type">{{  info.TypeActiv }}</td>
-                                <td class="td-all td-view">{{ info.ViewActiv }}</td>
-                                <td class="td-all td-sum">{{ info.sum }}руб.</td>
-                                <td class="td-all td-name">{{ info.name }}</td>
-                                <td class="td-all td-coverage">Покрытие</td>
-                            </tr>
-                            {% endfor %}
-                            {% for info in infos %}
-                            <tr class="tr-white">
-                                <td class="td-all td-status">{{ info.status }}</td>
-                                <td class="td-all td-fio">{{ info.FML }}</td>
-                                <td class="td-all td-type">{{  info.TypeActiv }}</td>
-                                <td class="td-all td-view">{{ info.ViewActiv }}</td>
-                                <td class="td-all td-sum">{{ info.sum }}руб.</td>
-                                <td class="td-all td-name">{{ info.name }}</td>
-                                <td class="td-all td-coverage">Покрытие</td>
-                            </tr>
-                            {% endfor %}
-                            {% for info in infos %}
-                            <tr class="tr-white">
-                                <td class="td-all td-status">{{ info.status }}</td>
-                                <td class="td-all td-fio">{{ info.FML }}</td>
-                                <td class="td-all td-type">{{  info.TypeActiv }}</td>
-                                <td class="td-all td-view">{{ info.ViewActiv }}</td>
-                                <td class="td-all td-sum">{{ info.sum }}руб.</td>
-                                <td class="td-all td-name">{{ info.name }}</td>
-                                <td class="td-all td-coverage">Покрытие</td>
-                            </tr>
-                            {% endfor %}
-                            {% for info in infos %}
-                            <tr class="tr-white">
-                                <td class="td-all td-status">{{ info.status }}</td>
-                                <td class="td-all td-fio">{{ info.FML }}</td>
-                                <td class="td-all td-type">{{  info.TypeActiv }}</td>
-                                <td class="td-all td-view">{{ info.ViewActiv }}</td>
-                                <td class="td-all td-sum">{{ info.sum }}руб.</td>
-                                <td class="td-all td-name">{{ info.name }}</td>
-                                <td class="td-all td-coverage">Покрытие</td>
-                            </tr>
-                            {% endfor %}
-                            {% for info in infos %}
-                            <tr class="tr-white">
-                                <td class="td-all td-status">{{ info.status }}</td>
-                                <td class="td-all td-fio">{{ info.FML }}</td>
-                                <td class="td-all td-type">{{  info.TypeActiv }}</td>
-                                <td class="td-all td-view">{{ info.ViewActiv }}</td>
-                                <td class="td-all td-sum">{{ info.sum }}руб.</td>
-                                <td class="td-all td-name">{{ info.name }}</td>
-                                <td class="td-all td-coverage">Покрытие</td>
-                            </tr>
-                            {% endfor %}
-                            {% for info in infos %}
-                            <tr class="tr-white">
-                                <td class="td-all td-status">{{ info.status }}</td>
-                                <td class="td-all td-fio">{{ info.FML }}</td>
-                                <td class="td-all td-type">{{  info.TypeActiv }}</td>
-                                <td class="td-all td-view">{{ info.ViewActiv }}</td>
-                                <td class="td-all td-sum">{{ info.sum }}руб.</td>
-                                <td class="td-all td-name">{{ info.name }}</td>
-                                <td class="td-all td-coverage">Покрытие</td>
-                            </tr>
-                            {% endfor %}
-                            {% for info in infos %}
-                            <tr class="tr-white">
-                                <td class="td-all td-status">{{ info.status }}</td>
-                                <td class="td-all td-fio">{{ info.FML }}</td>
-                                <td class="td-all td-type">{{  info.TypeActiv }}</td>
-                                <td class="td-all td-view">{{ info.ViewActiv }}</td>
-                                <td class="td-all td-sum">{{ info.sum }}руб.</td>
-                                <td class="td-all td-name">{{ info.name }}</td>
-                                <td class="td-all td-coverage">Покрытие</td>
-                            </tr>
-                            {% endfor %}
-                            {% for info in infos %}
-                            <tr class="tr-white">
-                                <td class="td-all td-status">{{ info.status }}</td>
-                                <td class="td-all td-fio">{{ info.FML }}</td>
-                                <td class="td-all td-type">{{  info.TypeActiv }}</td>
-                                <td class="td-all td-view">{{ info.ViewActiv }}</td>
-                                <td class="td-all td-sum">{{ info.sum }}руб.</td>
-                                <td class="td-all td-name">{{ info.name }}</td>
-                                <td class="td-all td-coverage">Покрытие</td>
-                            </tr>
-                            {% endfor %}
-                            {% for info in infos %}
-                            <tr class="tr-white">
-                                <td class="td-all td-status">{{ info.status }}</td>
-                                <td class="td-all td-fio">{{ info.FML }}</td>
-                                <td class="td-all td-type">{{  info.TypeActiv }}</td>
-                                <td class="td-all td-view">{{ info.ViewActiv }}</td>
-                                <td class="td-all td-sum">{{ info.sum }}руб.</td>
-                                <td class="td-all td-name">{{ info.name }}</td>
-                                <td class="td-all td-coverage">Покрытие</td>
-                            </tr>
-                            {% endfor %}
-                            {% for info in infos %}
-                            <tr class="tr-white">
-                                <td class="td-all td-status">{{ info.status }}</td>
-                                <td class="td-all td-fio">{{ info.FML }}</td>
-                                <td class="td-all td-type">{{  info.TypeActiv }}</td>
-                                <td class="td-all td-view">{{ info.ViewActiv }}</td>
-                                <td class="td-all td-sum">{{ info.sum }}руб.</td>
-                                <td class="td-all td-name">{{ info.name }}</td>
-                                <td class="td-all td-coverage">Покрытие</td>
-                            </tr>
-                            {% endfor %}
-                            {% for info in infos %}
-                            <tr class="tr-white">
-                                <td class="td-all td-status">{{ info.status }}</td>
-                                <td class="td-all td-fio">{{ info.FML }}</td>
-                                <td class="td-all td-type">{{  info.TypeActiv }}</td>
-                                <td class="td-all td-view">{{ info.ViewActiv }}</td>
-                                <td class="td-all td-sum">{{ info.sum }}руб.</td>
-                                <td class="td-all td-name">{{ info.name }}</td>
-                                <td class="td-all td-coverage">Покрытие</td>
-                            </tr>
-                            {% endfor %}
-                            {% for info in infos %}
-                            <tr class="tr-white">
-                                <td class="td-all td-status">{{ info.status }}</td>
-                                <td class="td-all td-fio">{{ info.FML }}</td>
-                                <td class="td-all td-type">{{  info.TypeActiv }}</td>
-                                <td class="td-all td-view">{{ info.ViewActiv }}</td>
-                                <td class="td-all td-sum">{{ info.sum }}руб.</td>
-                                <td class="td-all td-name">{{ info.name }}</td>
-                                <td class="td-all td-coverage">Покрытие</td>
-                            </tr>
-                            {% endfor %}
-                            {% for info in infos %}
-                            <tr class="tr-white">
-                                <td class="td-all td-status">{{ info.status }}</td>
-                                <td class="td-all td-fio">{{ info.FML }}</td>
-                                <td class="td-all td-type">{{  info.TypeActiv }}</td>
-                                <td class="td-all td-view">{{ info.ViewActiv }}</td>
-                                <td class="td-all td-sum">{{ info.sum }}руб.</td>
-                                <td class="td-all td-name">{{ info.name }}</td>
-                                <td class="td-all td-coverage">Покрытие</td>
-                            </tr>
-                            {% endfor %}
-                            {% for info in infos %}
-                            <tr class="tr-white">
-                                <td class="td-all td-status">{{ info.status }}</td>
-                                <td class="td-all td-fio">{{ info.FML }}</td>
-                                <td class="td-all td-type">{{  info.TypeActiv }}</td>
-                                <td class="td-all td-view">{{ info.ViewActiv }}</td>
-                                <td class="td-all td-sum">{{ info.sum }}руб.</td>
-                                <td class="td-all td-name">{{ info.name }}</td>
-                                <td class="td-all td-coverage">Покрытие</td>
-                            </tr>
-                            {% endfor %}
-                            {% for info in infos %}
-                            <tr class="tr-white">
-                                <td class="td-all td-status">{{ info.status }}</td>
-                                <td class="td-all td-fio">{{ info.FML }}</td>
-                                <td class="td-all td-type">{{  info.TypeActiv }}</td>
-                                <td class="td-all td-view">{{ info.ViewActiv }}</td>
-                                <td class="td-all td-sum">{{ info.sum }}руб.</td>
-                                <td class="td-all td-name">{{ info.name }}</td>
-                                <td class="td-all td-coverage">Покрытие</td>
-                            </tr>
-                            {% endfor %}
-                            {% for info in infos %}
-                            <tr class="tr-white">
-                                <td class="td-all td-status">{{ info.status }}</td>
-                                <td class="td-all td-fio">{{ info.FML }}</td>
-                                <td class="td-all td-type">{{  info.TypeActiv }}</td>
-                                <td class="td-all td-view">{{ info.ViewActiv }}</td>
-                                <td class="td-all td-sum">{{ info.sum }}руб.</td>
-                                <td class="td-all td-name">{{ info.name }}</td>
-                                <td class="td-all td-coverage">Покрытие</td>
-                            </tr>
-                            {% endfor %}
-                            {% for info in infos %}
-                            <tr class="tr-white">
-                                <td class="td-all td-status">{{ info.status }}</td>
+                            <tr onclick="get_id_delete(event)" class="tr-white" id="2">
+                                <td id="2" class="td-all td-status">{{ info.status }}</td>
                                 <td class="td-all td-fio">{{ info.FML }}</td>
                                 <td class="td-all td-type">{{  info.TypeActiv }}</td>
                                 <td class="td-all td-view">{{ info.ViewActiv }}</td>
@@ -372,6 +182,31 @@
                             </tr>
                             {% endfor %}
 
+                            {% for info in infos %}
+                            <tr onclick="get_id_delete(event)" class="tr-white" id="3">
+                                <td id="3" class="td-all td-status">{{ info.status }}</td>
+                                <td class="td-all td-fio">{{ info.FML }}</td>
+                                <td class="td-all td-type">{{  info.TypeActiv }}</td>
+                                <td class="td-all td-view">{{ info.ViewActiv }}</td>
+                                <td class="td-all td-sum">{{ info.sum }}руб.</td>
+                                <td class="td-all td-name">{{ info.name }}</td>
+                                <td class="td-all td-coverage">Покрытие</td>
+                            </tr>
+                            {% endfor %}
+                            
+                            {% for info in infos %}
+                            <tr onclick="get_id_delete(event)" class="tr-white" id="4">
+                                <td id="4" class="td-all td-status">{{ info.status }}</td>
+                                <td class="td-all td-fio">{{ info.FML }}</td>
+                                <td class="td-all td-type">{{  info.TypeActiv }}</td>
+                                <td class="td-all td-view">{{ info.ViewActiv }}</td>
+                                <td class="td-all td-sum">{{ info.sum }}руб.</td>
+                                <td class="td-all td-name">{{ info.name }}</td>
+                                <td class="td-all td-coverage">Покрытие</td>
+                            </tr>
+                            {% endfor %}
+                            
+                            
                             
                             
                         </tbody>

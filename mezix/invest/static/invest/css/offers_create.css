@@ -243,6 +243,7 @@ body {
     color: black;
     font-size: 14px;
     font-weight: bold;
+    cursor: pointer;
 }
 
 .flex-item:hover .text-sum-digits{

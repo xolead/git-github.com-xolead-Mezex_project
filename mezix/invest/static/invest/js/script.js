@@ -38,11 +38,11 @@ function get_id_delete(event){
             var found = document.querySelectorAll(".tr-white:nth-child(2n+1)")
             for (x of found){
                 if (x.id == pre_elem){
-                    document.getElementById(pre_elem).style.cssText = "cursor: default; background-color:#ffffff;"
+                    document.getElementById(pre_elem).style.cssText = "cursor: pointer; background-color:#ffffff;"
                     document.getElementById("popup"+ pre_elem).style.zIndex = "-1";
                 }
                 else{
-                    document.getElementById(pre_elem).style.cssText = "cursor: default; background-color:##EEF4EA;"
+                    document.getElementById(pre_elem).style.cssText = "cursor: pointer; background-color:##EEF4EA;"
                     document.getElementById("popup"+ pre_elem).style.zIndex = "-1";
                 }
             }
@@ -56,7 +56,9 @@ function get_id_delete(event){
 
 function deletes() {
     document.getElementById(elem).remove();
+    document.getElementById("button-block-applications").style.marginRight = "-8px";
     document.getElementById("popup"+elem).style.zIndex = "-1";
+    document.getElementById("strelka-vlevo").style.rotate = "360deg";
     pre_elem = "0"
    
 }

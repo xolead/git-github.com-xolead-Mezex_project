@@ -96,7 +96,6 @@
                         <div id={{ info.popup }} class ="popup" style="z-index: -1;">
                             <div class="popup_information">
 
-
                                 <div class="text-extra-info-main">Лица/ФССП:
                                     <div class="container-extra-info">
                                         <img src= {% static 'invest/img/pic-violation.jpeg'%} class="pic-violation">
@@ -115,7 +114,7 @@
                                     </div>
                                     <div class="container-extra-info">
                                         <img src= {% static 'invest/img/pic-violation.jpeg'%} class="pic-violation">
-                                        <div class="text-extra-info-all">Обременение</div>
+                                        <div class="text-extra-info-all">Беременность</div>
                                     </div>
                                 </div>
 
@@ -131,25 +130,7 @@
                         </div>
 
                         {% endfor %}
-
-                        <div id="popup2" class ="popup" style="z-index: -1;">
-                            <div class="popup_information">
-
-
-                                aboba
-
-                            </div>
-        
-                            <div class="popup_buttons">
-                                <button class="button_for_information">Подробный отчёт</button>
-                                <button class="button_for_information">Дополнительная информация</button>
-                                <button onclick="deletes()" class="button_accept">Предложить</button>
-                                <button onclick="deletes()" id="button_decline">Отказаться</button>
-                            </div>
-        
-                        </div>
-
-                        
+                   
 
                     <table cellspacing="0"  class="table-ebat">
                     
@@ -170,7 +151,7 @@
                         <tbody class="tbody">
                             
                             {% for info in infos %}
-                            <tr onclick="get_id_delete(event)" id="1" class="tr-white" style="cursor: pointer;">
+                            <tr onclick="get_id_delete(event)" id={{ info.id }} class="tr-white" style="cursor: pointer;">
                                 <td id={{ info.id }} class="td-all td-status">{{ info.status }}</td>
                                 <td id={{ info.id }} class="td-all td-fio">{{ info.FML }}</td>
                                 <td id={{ info.id }} class="td-all td-type">{{  info.TypeActiv }}</td>

@@ -1,5 +1,6 @@
 body, input, textarea {
     font-family: "Montserrat";
+    font-size: 26px;
 }
 
 body {
@@ -7,22 +8,23 @@ body {
     font-family: "Montserrat";
 }
 
-.enter-login {
+.text-MezEx {
     display: block;
-    margin-bottom: 30px;
-	padding: 15px 10px;
+    text-align: right;
+    margin-bottom: 160px;
     width: max-content;
     height: min-content;
-	border-radius: 20px;
 	text-decoration: none;
-    font-size: 42px;
+    font-size: 38px;
 	font-weight: 500;
-	color: #101010;
-	text-align: center;
-    position: relative;
-    left: 50%;
-    transform: translate(-50%, 0);
-	border-radius: 20px;
+	color: #ffffff;
+}
+
+.text-under{
+    color:#ffffff;
+    font-size: 28px;
+    align-self: center;
+    margin-top: 80px;
 }
 
 .info-mezex {
@@ -38,59 +40,65 @@ body {
 
 form {
     display: grid;
+    margin-top: 100px;
     z-index: 1;
-    margin-top: 50vh;
-    grid-area: 1 / 2 / 2 / 2;
-    align-self: center;
-	padding:20px;
-	width: calc(100% - 55px);
-	height: min-content;
-	overflow:hidden;
+	width: min-content;
+	height: 400px;
 	border-radius:20px;
 
 }
 
 form input {
-	margin:10px 0;
 	padding:5px 2px;
-	width:21.3vw;
-    height: 3.7vh;
+    margin-bottom: 8px;
+	width: 25.3vw;
+    height: 4.4vh;
+    width: 450px;
+    height: 43px;
 	outline:none;
-    font-size: 20px;
-	border:3px solid #40a15d;
-	display:inline-block;
-	-webkit-box-sizing:border-box;
-	   -moz-box-sizing:border-box;
-	        box-sizing:border-box;
-    -webkit-transition:0.2s ease all;
-	   -moz-transition:0.2s ease all;
-	    -ms-transition:0.2s ease all;
-	     -o-transition:0.2s ease all;
-	        transition:0.2s ease all;
-
+    font-size: 26px;
+    font-weight: 400;
 }
 
 .form_field {
     display: grid;
     margin-top: 5px;
     color: #000;
-    justify-content: center;
+    justify-content: right;
+    
+    
 }
 
-.container-login {
-    display: grid;
-    grid-template-columns: 62.5vw 37.5vw; 
-    grid-template-rows: 50vh ;
+.container-overlay{
+    min-height: 100vh;
+    background : #232138
+}
+
+.container-all {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    width: 100vw;
+    height: 100vh;
     flex-basis: 0;
     box-sizing: border-box;
-    background: rgb(255, 255, 255);
+}
+
+.container-row{
+    display: flex;
+    justify-content: space-between;
+    margin-left: 150px;
+    margin-right: 8%;
 }
 
 .pic-logo {
-    width: 62.5vw;
-    height: 49vh;
-    margin-left: 5px;
-    margin-top: 35px;
+    z-index: 0;
+    width: 35vw;
+    height:70vh;
+    margin-top: 10px;
+    background: #232138;
+    margin-top: 100px;
 }
 
 .pic-right-side {
@@ -104,16 +112,17 @@ form input {
 button[type=submit] {
     cursor: pointer;
     color: #ffffff;
-    margin-top: 40px;
+    margin-top: 23px;
     width:21.3vw;
-    height: 4.6vh;
+    height: 5.6vh;
+    width: 458px;
+    height: 57px;
 	outline:none;
-    font-size: 20px;
+    font-size: 25px;
     font-family: "Montserrat";
-	border:1px solid #bbb;
-	border-radius:5px;
+	border:0px solid #232138;
     position: relative;
-    left: 50%;
+    left: 65.85%;
     transform: translate(-50%, 0);
 	display:inline-block;
 	-webkit-box-sizing:border-box;
@@ -124,7 +133,7 @@ button[type=submit] {
 	    -ms-transition:0.2s ease all;
 	     -o-transition:0.2s ease all;
 	        transition:0.2s ease all;
-    background-color: #40a15d ;
+    background-color: #21CC4E ;
 }
 
 .butsubmit {
@@ -167,7 +176,46 @@ button[type=submit] {
     line-height: 1.2;
 }
 
+.green-MezEx{
+    color: #21CC4E;
+    font-size: 42px;
+}
+
 ul {
     text-align: center;
     list-style-position: inside;
+}
+
+.text-error{
+    display: flex;
+    font-size: 20px;
+    color: #ffffff;
+    position: relative;
+    left: 42%;
+    transform: translate(-32.5%, 0);
+    margin-top: 15px;
+    margin-left: 35px;
+    width: max-content;
+    background-color: rgb(248, 93, 50);
+}
+
+@media screen and (max-height: 900px){
+    .text-under{
+        margin-top: 50px;
+    }
+    .text-MezEx{
+        margin-bottom: 120px;
+    }
+}
+
+@media screen and (max-height: 768px){
+    .text-MezEx{
+        margin-bottom: 80px;
+    }
+}
+
+@media screen and (max-width: 1430px){
+    .text-under{
+        font-size: 24px; 
+    }
 }

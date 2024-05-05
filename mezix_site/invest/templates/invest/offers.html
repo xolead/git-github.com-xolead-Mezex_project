@@ -1,0 +1,183 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Мезекс инвестиции</title>
+
+    <link rel="shortcut icon" href= {% static 'invest/img/mezex_logo.png' %} type="image/png">
+
+	<link rel="stylesheet" href={% static 'invest/css/offers_create.css' %}>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,600;1,600&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+</head>
+
+
+<body>
+
+    <div class="container-overlay">
+        <div class="container-all">
+            
+            <div class="window"></div>
+
+
+            <div class="container-header">
+                <div class="container-header-content">
+
+                    <div class="container-header-content-logo">
+                        <img src={% static 'invest/img/mezex_logo_white.png' %} class="pic-logo">
+                    </div>
+
+                    <div class="container-header-content-applications">
+                        <a href ="{% url 'home' %}">
+                            <img src={% static 'invest/img/applic_pas.png' %} class="pic-bag">
+                        </a>
+                    </div>
+
+                    <div class="container-header-content-applications container-header-content-offers">
+                        <a href ="{% url 'offers' %}">
+                            <img src={% static 'invest/img/offers_act.png' %} class="pic-bag pic-bag2">
+                        </a>
+                    </div>
+
+                    <div class="container-header-content-fio">
+
+                        <div class="container-header-content-create">
+                            <a href ="{% url 'create' %}">
+                                <img src={% static 'invest/img/applic_pas.png' %} class="pic-create">
+                            </a>
+                        </div>
+
+                        <div class="container-header-content-fio-fio">{{ request.user.username }}</div>
+
+                        {% if user.is_authenticated %}   
+                            <div class ="container-header-content-fio-out">
+                                <a href ="{% url 'logout' %}"><button type="button" class="button-out">
+                                <img src= {% static 'invest/img/button_outs.png' %} class="header-button-out-icon">
+                                </button>
+                                </a>
+                            </div>
+                        {% endif %}
+
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="window_applications">
+
+            <div class="layout_container-content">
+
+                <div class="section-container-applications">
+                        <div class="text-applications">Предложения</div>
+
+                    <div class="grid-container">  
+                    
+                        <div class="flex-container">
+                        
+                            <div class="flex-item">
+                                <div class="text-fio">Акакий С.Н.</div>
+
+                                <div class="text-status"><img src= {% static 'invest/img/green_dot.png' %} class="pic-status">Исполнено</div>
+                                <div class="green-line"></div>
+                                
+                                <div class="block-type">
+                                    <div class="text-type">Тип актива: <span class="text-type-view-more">Дом классный такой на море</span></div>
+                                </div>
+                                
+                                <div class="block-view">
+                                    <div class="text-view">Вид актива: <span class="text-type-view-more">Не, ну прям вах какой дом</span></div>
+                                </div>
+
+                                <div class="green-line green-line-down"></div>
+                                <div class="block-sum">
+                                    <div class="text-sum">Сумма: <span class="text-sum-digits">140 000 000руб.</span></div>
+                                </div>
+                            </div>
+
+                            <div class="flex-item">
+                                <div class="text-fio">Вулканий П.А.</div>
+
+                                <div class="text-status"><img src= {% static 'invest/img/yellow_dot.png' %} class="pic-status">На рассмотрении</div>
+                                <div class="green-line"></div>
+                                
+                                <div class="block-type">
+                                    <div class="text-type">Тип актива: <span class="text-type-view-more">Дом на море</span></div>
+                                </div>
+                                
+                                <div class="block-view">
+                                    <div class="text-view">Вид актива: <span class="text-type-view-more">Просто какой-то дом</span></div>
+                                </div>
+
+                                <div class="green-line green-line-down"></div>
+                                <div class="block-sum">
+                                    <div class="text-sum">Сумма: <span class="text-sum-digits">140 000руб.</span></div>
+                                </div>
+                            </div>
+
+                            <div class="flex-item">
+                                <div class="text-fio">Агафонов В.В.</div>
+
+                                <div class="text-status"><img src= {% static 'invest/img/red_dot.png' %} class="pic-status">Отказано</div>
+                                <div class="green-line"></div>
+                                
+                                <div class="block-type">
+                                    <div class="text-type">Тип актива: <span class="text-type-view-more">Дом в Инте</span></div>
+                                </div>
+                                
+                                <div class="block-view">
+                                    <div class="text-view">Вид актива: <span class="text-type-view-more">Не, ну прям вообще не вах какой дом</span></div>
+                                </div>
+
+                                <div class="green-line green-line-down"></div>
+                                <div class="block-sum">
+                                    <div class="text-sum">Сумма: <span class="text-sum-digits">140руб.</span></div>
+                                </div>
+                            </div>
+
+                            <div class="flex-item">
+                                <div class="text-fio">Агафонов В.В.</div>
+
+                                <div class="text-status"><img src= {% static 'invest/img/red_dot.png' %} class="pic-status">Отказано</div>
+                                <div class="green-line"></div>
+                                
+                                <div class="block-type">
+                                    <div class="text-type">Тип актива: <span class="text-type-view-more">Дом в Инте Дом в Инте Дом в Инте Дом в Инте Дом в Инте Дом в Инте Дом в Инте Дом в Инте Дом в Инте Дом в Инте Дом в Инте Дом в Инте Дом в Инте Дом в Инте Дом в Инте Дом в Инте Дом в Инте Дом в Инте Дом в Инте Дом в Инте Дом в Инте Дом в Инте Дом в Инте Дом в Инте Дом в Инте Дом в Инте Дом в Инте Дом в Инте Дом в Инте Дом в Инте Дом в Инте Дом в Инте Дом в Инте Дом в Инте Дом в Инте Дом в Инте Дом в Инте Дом в Инте Дом в Инте Дом в Инте </span></div>
+                                </div>
+                                
+                                <div class="block-view">
+                                    <div class="text-view">Вид актива: <span class="text-type-view-more">Не, ну прям вообще не вах какой дом Не, ну прям вообще не вах какой дом Не, ну прям вообще не вах какой дом Не, ну прям вообще не вах какой дом Не, ну прям вообще не вах какой дом Не, ну прям вообще не вах какой дом Не, ну прям вообще не вах какой дом Не, ну прям вообще не вах какой дом Не, ну прям вообще не вах какой дом Не, ну прям вообще не вах какой дом Не, ну прям вообще не вах какой дом Не, ну прям вообще не вах какой дом Не, ну прям вообще не вах какой дом Не, ну прям вообще не вах какой дом </span></div>
+                                </div>
+
+                                <div class="green-line green-line-down"></div>
+                                <div class="block-sum">
+                                    <div class="text-sum">Сумма: <span class="text-sum-digits">140руб.</span></div>
+                                </div>
+                            </div>
+
+                        </div>
+                    
+                    </div>
+
+                </div>
+
+            </div>
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+</body>

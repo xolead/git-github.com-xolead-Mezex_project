@@ -98,6 +98,14 @@ class LogStatus(models.Model):
     id_MySuggestions = models.ForeignKey(MySuggestions, on_delete = models.SET_NULL, null = True)
     id_Client = models.ForeignKey(Client, on_delete = models.CASCADE)
     time_changes = models.DateTimeField()
+    
+    
+class Answer(models.Model):
+    id_Investor = models.ForeignKey(Investor, on_delete = models.CASCADE, null = True)
+    id_RequestClient = models.ForeignKey(RequestClient, on_delete = models.CASCADE, null = True)
+    id_Status = models.ForeignKey(Status, on_delete = models.PROTECT)
+
+
 
 
 

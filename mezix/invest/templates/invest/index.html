@@ -132,7 +132,9 @@
                             </a>
                                 <button class="button_for_information">Дополнительная информация</button>
                                 <button onclick="deletes()" class="button_accept">Предложить</button>
+                                <a href="{% url  'delete' info.id info.idInv %}">
                                 <button onclick="deletes()" id="button_decline">Отказаться</button>
+                                </a>
                             </div>
         
                         </div>

@@ -7,7 +7,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.home, name='home'),
     path('offers/', views.offers, name='offers'),
-    path('create/', views.create, name='create')
+    path('create/', views.create, name='create'),
+    path('view_files/', views.view_files, name='view_files')
 ]
 
 urlpatterns += [

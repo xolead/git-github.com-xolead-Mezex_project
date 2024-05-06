@@ -9,6 +9,8 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Мезекс инвестиции</title>
 
+   
+
     <link rel="shortcut icon" href= {% static 'invest/img/mezex_logo.png' %} type="image/png">
 
 	<link rel="stylesheet" href={% static 'invest/css/offers_create.css' %}>
@@ -58,7 +60,7 @@
                             </a>
                         </div>
 
-                        <div class="container-header-content-fio-fio">{{ request.user.username }}</div>
+                        <div class="container-header-content-fio-fio">{{ request.user.username  }}</div>
 
                         {% if user.is_authenticated %}   
                             <div class ="container-header-content-fio-out">
@@ -88,45 +90,42 @@
 
 
                             {% for info in infos %}
-                            <div class="flex-item">
-                                <div class="text-fio">{{info.FML}}</div>
+                                 <a href = "{% url 'view_files' %}" target="_blank" style="text-decoration: none; color: black;"> 
+                            
+                                <div onclick="offers(event)" class="flex-item" id="{{ info.id }}">
+                                <div id="{{ info.id }}" class="text-fio">{{info.FML}}</div>
 
                                 {% if info.status == 'Одобрена' %}
-                                <div class="text-status"><img src= {% static 'invest/img/green_dot.png' %} class="pic-status">Одобрено</div>
-                                <div class="green-line"></div>
+                                <div id="{{ info.id }}" class="text-status"><img id="{{ info.id }}" src= {% static 'invest/img/green_dot.png' %} class="pic-status">Одобрено</div>
+                                <div id="{{ info.id }}" class="green-line"></div>
                                 {% endif %}
 
                                 {% if info.status == 'Ожидает ответа' %}
-                                <div class="text-status"><img src= {% static 'invest/img/yellow_dot.png' %} class="pic-status">Ожидает ответа</div>
-                                <div class="green-line"></div>
+                                <div id="{{ info.id }}" class="text-status"><img id="{{ info.id }}" src= {% static 'invest/img/yellow_dot.png' %} class="pic-status">Ожидает ответа</div>
+                                <div id="{{ info.id }}" class="green-line"></div>
                                 {% endif %}
 
                                 {% if info.status == 'Отказано' %}
-                                <div class="text-status"><img src= {% static 'invest/img/red_dot.png' %} class="pic-status">Отказано</div>
-                                <div class="green-line"></div>
+                                <div id="{{ info.id }}" class="text-status"><img id="{{ info.id }}" src= {% static 'invest/img/red_dot.png' %} class="pic-status">Отказано</div>
+                                <div id="{{ info.id }}" class="green-line"></div>
                                 {% endif %}
                                 
-                                <div class="block-type">
-                                    <div class="text-type">Тип актива: <span class="text-type-view-more">{{ info.TypeActiv }}</span></div>
+                                <div id="{{ info.id }}" class="block-type">
+                                    <div id="{{ info.id }}" class="text-type">Тип актива: <span id="{{ info.id }}" class="text-type-view-more">{{ info.TypeActiv }}</span></div>
                                 </div>
                                 
-                                <div class="block-view">
-                                    <div class="text-view">Вид актива: <span class="text-type-view-more">{{ info.ViewActiv }}</span></div>
+                                <div id="{{ info.id }}" class="block-view">
+                                    <div id="{{ info.id }}" class="text-view">Вид актива: <span id="{{ info.id }}" class="text-type-view-more">{{ info.ViewActiv }}</span></div>
                                 </div>
 
-                                <div class="green-line green-line-down"></div>
-                                <div class="block-sum">
-                                    <div class="text-sum">Сумма: <span class="text-sum-digits">{{ info.sum }}руб.</span></div>
+                                <div id="{{ info.id }}" class="green-line green-line-down"></div>
+                                <div id="{{ info.id }}" class="block-sum">
+                                    <div id="{{ info.id }}" class="text-sum">Сумма: <span id="{{ info.id }}" class="text-sum-digits">{{ info.sum }}руб.</span></div>
                                 </div>
-                            </div>
-
+                                </div>
+                                </a> 
                             {% endfor %}
                             
-
-
-
-
-
                         </div>
                     
                     </div>
@@ -141,5 +140,5 @@
     </div>
 
 
-
+    <script src={% static 'invest/js/script.js' %}></script>
 </body>

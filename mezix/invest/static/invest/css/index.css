@@ -364,7 +364,7 @@ body {
 .popup_information{
     margin: 0 20px;
     background-color: white;
-    height: 80%;
+    height: calc(100% - 180px);
     overflow:scroll;
     overflow-x: hidden;
     border-radius: 6px;
@@ -412,13 +412,15 @@ body {
     font-weight: 600;
     border-style: none;
     cursor: pointer;
+    text-decoration: none;
+    width: 100%;
 }
 
 .pic-violation{
     height: 12px;
     width: 12px;
-    margin-top: 12px;
-    margin-right: 3px;
+    margin-top: 9.5px;
+    margin-right: 5px;
 }
 
 .container-extra-info{
@@ -435,5 +437,6 @@ body {
 .text-extra-info-all{
     font-size: 13px;
     font-weight: 600;
-    margin-top: 10px;
+    margin-top: 6px;
+    line-height: 1.5
 }

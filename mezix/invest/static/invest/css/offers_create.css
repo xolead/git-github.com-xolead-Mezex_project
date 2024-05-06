@@ -387,3 +387,17 @@ body {
         margin-left: 50px;
     }
 }
+
+.section-container-create{
+    color: black;
+    background-color: #ffffff;
+    margin: 0px 26px;
+    margin-bottom: 30px;
+    height: calc(100vh - 64px - 30px - 1px);
+    border-radius: 5px;
+}
+
+.iframe{
+    height: 100%;
+    width: 100%;
+}

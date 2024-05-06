@@ -42,7 +42,7 @@
 
                     <div class="container-header-content-applications">
                         <a href ="{% url 'home' %}">
-                            <img src={% static 'invest/img/applic_act.png' %} class="pic-bag">
+                            <img src={% static 'invest/img/applic_act.png' %} title="Мои заявки" class="pic-bag">
                         </a>
                     </div>
 
@@ -107,21 +107,29 @@
                                     </div>
                                 </div>
 
-                                <div class="text-extra-info-main">Объект: недвижимость:
+                                <div class="text-extra-info-main">Данные актива:
                                     <div class="container-extra-info">
                                         <img src= {% static 'invest/img/pic-no-violation.jpeg'%} class="pic-violation">
                                         <div class="text-extra-info-all">{{ info.id }}</div>
                                     </div>
                                     <div class="container-extra-info">
                                         <img src= {% static 'invest/img/pic-violation.jpeg'%} class="pic-violation">
-                                        <div class="text-extra-info-all">Беременность</div>
+                                        <div class="text-extra-info-all">Актив: Дом с Земельным участком 4ой Пятилетки </div>
+                                    </div>
+                                    <div class="container-extra-info">
+                                        <img src= {% static 'invest/img/pic-violation.jpeg'%} class="pic-violation">
+                                        <div class="text-extra-info-all">Тип актива: Комплексный актив </div>
                                     </div>
                                 </div>
 
                             </div>
         
                             <div class="popup_buttons">
-                                <button class="button_for_information">Подробный отчёт</button>
+                                <a href = "{% url 'view_files' %}" target="_blank" style="text-decoration: none; color: black;">
+                                <button onclick="info()" class="button_for_information">
+                                    Подробный отчёт
+                                </button>
+                            </a>
                                 <button class="button_for_information">Дополнительная информация</button>
                                 <button onclick="deletes()" class="button_accept">Предложить</button>
                                 <button onclick="deletes()" id="button_decline">Отказаться</button>
@@ -151,22 +159,21 @@
                         <tbody class="tbody">
                             
                             {% for info in infos %}
-                            <tr onclick="get_id_delete(event)" id={{ info.id }} class="tr-white" style="cursor: pointer;">
-                                <td id={{ info.id }} class="td-all td-status">{{ info.status }}</td>
-                                <td id={{ info.id }} class="td-all td-fio">{{ info.FML }}</td>
-                                <td id={{ info.id }} class="td-all td-type">{{  info.TypeActiv }}</td>
-                                <td id={{ info.id }} class="td-all td-view">{{ info.ViewActiv }}</td>
-                                <td id={{ info.id }} class="td-all td-sum">{{ info.sum }}руб.</td>
-                                <td id={{ info.id }} class="td-all td-name">{{ info.name }}</td>
-                                <td id={{ info.id }} class="td-all td-coverage">Покрытие</td>
-                            </tr>
+                                <tr onclick="get_id_delete(event)" id={{ info.id }} class="tr-white" style="cursor: pointer;">
+                                    <td id={{ info.id }} class="td-all td-status">{{ info.status }}</td>
+                                    <td id={{ info.id }} class="td-all td-fio">{{ info.FML }}</td>
+                                    <td id={{ info.id }} class="td-all td-type">{{  info.TypeActiv }}</td>
+                                    <td id={{ info.id }} class="td-all td-view">{{ info.ViewActiv }}</td>
+                                    <td id={{ info.id }} class="td-all td-sum">{{ info.sum }}руб.</td>
+                                    <td id={{ info.id }} class="td-all td-name">{{ info.name }}</td>
+                                    <td id={{ info.id }} class="td-all td-coverage">Покрытие</td>
+                                </tr>
                             {% endfor %}
 
                         
+
                 
-                            
-                            
-                            
+
                         </tbody>
 
                     </table>

@@ -19,7 +19,8 @@ window.pre_elem = "0"
 
 function get_id_delete(event){
     window.elem = event.target.id; 
-    document.getElementById(elem).style.cssText = "cursor: default; background-color:#21CC4E;"
+    console.log(elem)
+    document.getElementById(elem).style.cssText = "cursor: default; background-color:#baf7ca;"
         
    // if  (document.getElementById("popup").style.zIndex=="-1")
     //{
@@ -56,12 +57,22 @@ function get_id_delete(event){
 
 function deletes() {
     document.getElementById(elem).remove();
+    document.getElementById("popup" + elem).remove();
     document.getElementById("button-block-applications").style.marginRight = "-8px";
-    document.getElementById("popup"+elem).style.zIndex = "-1";
     document.getElementById("strelka-vlevo").style.rotate = "360deg";
     pre_elem = "0"
-   
+
+    //всегда в конце
+    document.getElementById("popup" +elem).style.zIndex = "-1";
 }
 
-// var aboba = document.querySelectorAll(".tr-white:nth-child(2n+1)")
-// for (x of aboba) console.log(x.id)
+function info(){
+    console.log(elem)
+    window.localStorage.setItem("urls", "'/static/invest/"+elem+".pdf'")
+}
+
+function offers(event){
+    window.aboba = event.target.id; 
+    console.log(aboba)
+    window.localStorage.setItem("offer_urls", "'/static/invest/"+aboba+".pdf'")
+}

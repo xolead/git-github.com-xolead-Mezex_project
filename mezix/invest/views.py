@@ -70,3 +70,7 @@ def offers(request):
 @login_required
 def create(request):
     return render(request, 'invest/create.html')
+
+@login_required
+def view_files(request):
+    return render(request, 'invest/view_files.html')

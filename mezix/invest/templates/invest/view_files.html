@@ -7,7 +7,9 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Мезекс инвестиции</title>
+	<title>Отчёт</title>
+
+    
 
     <link rel="shortcut icon" href= {% static 'invest/img/mezex_logo.png' %} type="image/png">
 
@@ -54,7 +56,7 @@
 
                         <div class="container-header-content-create">
                             <a href ="{% url 'create' %}">
-                                <img src={% static 'invest/img/applic_act.png' %} class="pic-create">
+                                <img src={% static 'invest/img/applic_pas.png' %} class="pic-create">
                             </a>
                         </div>
 
@@ -76,12 +78,15 @@
 
             <div class="window_applications">
 
-            <div class="layout_container-content">
+                <div class="layout_container-content">
 
-                <div class="section-container-applications">
-                    <div class="text-applications">Создание заявки?</div>
-            
-                        
+                    <div class="section-container-create">
+                        <div class="iframe">
+                            
+                        </div>
+                            <!--
+                        <embed src="file_name.pdf" width="100%" height="100%" />
+                            -->
 
                         </div>
                     
@@ -96,6 +101,6 @@
 
     </div>
 
-
-
+    <script src={% static 'invest/js/script.js' %}></script>
+    <script src={% static 'invest/js/view.js' %}></script>
 </body>

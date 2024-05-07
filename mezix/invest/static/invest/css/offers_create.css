@@ -215,7 +215,10 @@ body {
    }
 
 .grid-container{
-    margin: auto; 
+    margin-left: auto; 
+    margin-right: auto; 
+    margin-top: 25px;
+    width: 1700px;
 }
 
 .flex-container {
@@ -223,8 +226,6 @@ body {
     gap:50px;
     grid-template-columns:repeat(7,200px);
     padding: 0;
-    margin: 25px;
-    margin-left: 90px;
     list-style: none;
 }
 
@@ -348,46 +349,6 @@ body {
     margin-left: 10px;
 }
 
-@media screen and (max-width: 2049px){
-    .flex-container{
-        grid-template-columns:repeat(7,200px);
-        margin-left: 110px;
-        gap:60px;
-    }
-}
-
-@media screen and (max-width: 1921px){
-    .flex-container{
-        margin-left: 80px;
-        gap:50px;
-    }
-}
-
-@media screen and (max-width: 1681px){
-    .flex-container{
-        grid-template-columns:repeat(6,200px);
-    }
-}
-
-@media screen and (max-width: 1601px){
-    .flex-container{
-        margin-left: 45px;
-    }
-}
-
-@media screen and (max-width: 1441px){
-    .flex-container{
-        grid-template-columns:repeat(5,200px);
-        margin-left: 85px;
-    }
-}
-
-@media screen and (max-width: 1367px){
-    .flex-container{
-        margin-left: 50px;
-    }
-}
-
 .section-container-create{
     color: black;
     background-color: #ffffff;
@@ -400,4 +361,61 @@ body {
 .iframe{
     height: 100%;
     width: 100%;
+}
+
+@media screen and (max-width: 2049px){
+    .flex-container{
+        grid-template-columns:repeat(7,200px);
+        gap:60px;
+    }
+}
+
+@media screen and (max-width: 1921px){
+    .flex-container{
+        gap:50px;
+    }
+}
+
+@media screen and (max-width: 1800px){
+    .grid-container{
+        width: 1450px;
+    }
+    
+    .flex-container{
+        grid-template-columns:repeat(6,200px);
+
+    }
+}
+
+@media screen and (max-width: 1681px){
+    .grid-container{
+        width: 1450px;
+    }
+    
+    .flex-container{
+        grid-template-columns:repeat(6,200px);
+
+    }
+}
+
+@media screen and (max-width: 1601px){
+    .grid-container{
+        width: 1240px;
+       
+    }
+    .flex-container{
+        grid-template-columns:repeat(5,200px);
+        gap: 60px;
+    }
+}
+
+@media screen and (max-width: 1441px){
+    .grid-container{
+        width: 1200px;
+       
+    }
+    .flex-container{
+        grid-template-columns:repeat(5,200px);
+        gap: 50px;
+    }
 }

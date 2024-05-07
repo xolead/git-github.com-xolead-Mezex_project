@@ -46,6 +46,8 @@
                         </a>
                     </div>
 
+                    <div class="text-pic-bag">aboba</div>
+
                     <div class="container-header-content-applications container-header-content-offers">
                         <a href ="{% url 'offers' %}">
                             <img src={% static 'invest/img/offers_pas.png' %} class="pic-bag pic-bag2">
@@ -93,7 +95,7 @@
 
                         {% for info in infos%}
                         
-                        <div id={{ info.popup }} class ="popup" style="z-index: -1;">
+                            <div id={{ info.popup }} class ="popup" style="z-index: -1;">
                             <div class="popup_information">
 
                                 <div class="text-extra-info-main">Лица/ФССП:
@@ -131,22 +133,34 @@
                                 </button>
                             </a>
                                 <button class="button_for_information">Дополнительная информация</button>
-                                <button onclick="deletes()" class="button_accept">Предложить</button>
+                                <button onclick="btn()" class="button_accept">Предложить</button>
                                 <a href="{% url  'delete' info.id info.idInv %}">
                                 <button onclick="deletes()" id="button_decline">Отказаться</button>
                                 </a>
                             </div>
         
-                        </div>
+                            </div>
 
                         {% endfor %}
                    
 
                     <table cellspacing="0"  class="table-ebat">
+
+                        <div id="modal" onclick="close_overlay_click(event)" class="modal">
+                         <div class="modal-content">``
+                            <button onclick="btn_close()" class="button-close">close</button>
+
+                            <div class="block-modal">
+                                <div class="text-modal-main">ABOBA</div>
+                            </div>
+                          </div>
+                        </div>                      
+
+
                     
                         <thead class="table-head">
 
-                            <tr  class="th-white">
+                            <tr class="th-white">
                                 <th class="th-all th-status"><div class="green-triangle">Статус заявки<img src= {% static 'invest/img/green-triangle.png'%} class="sort-by-triangle"></div></th>
                                 <th class="th-all th-fio"><div class="green-triangle">ФИО<img src= {% static 'invest/img/green-triangle.png'%} class="sort-by-triangle"></div></th>
                                 <th class="th-all th-type"><div class="green-triangle">Тип актива<img src= {% static 'invest/img/green-triangle.png'%} class="sort-by-triangle"></div></th>
@@ -161,7 +175,7 @@
                         <tbody class="tbody">
                             
                             {% for info in infos %}
-                                <tr onclick="get_id_delete(event)" id={{ info.id }} class="tr-white" style="cursor: pointer;">
+                                <tr onclick="get_id_delete(event)" id="{{ info.id }}" class="tr-white" style="cursor: pointer;">
                                     <td id={{ info.id }} class="td-all td-status">{{ info.status }}</td>
                                     <td id={{ info.id }} class="td-all td-fio">{{ info.FML }}</td>
                                     <td id={{ info.id }} class="td-all td-type">{{  info.TypeActiv }}</td>
@@ -173,9 +187,6 @@
                             {% endfor %}
 
                         
-
-                
-
                         </tbody>
 
                     </table>

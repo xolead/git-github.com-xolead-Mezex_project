@@ -64,6 +64,10 @@ body {
     margin-top: 1px;
 }
 
+.container-header-content-applications:hover .text-pic-bag{
+    display: block;
+}
+
 .container-header-content-offers{
     margin-left: 25px;
     height: 52px;
@@ -83,6 +87,19 @@ body {
     width: 75px;
     height: 50px;
     border: 0px;
+}
+
+
+
+.text-pic-bag{
+    margin-top: 50px;
+    display: none;
+    background-color: #EEF4EA;
+    z-index: 1;
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    color: black;
 }
 
 .pic-bag2{
@@ -145,18 +162,22 @@ body {
 
 .layout_container-content{
     margin-top: 64px;
+    margin-left: 26px;
+    margin-right: 26px;
+    margin-bottom: 30px;
+    background-color: #ffffff;
+    border-radius: 5px;
 }
 
 .section-container-applications{
     color: black;
-    background-color: #ffffff;
-    margin: 0px 26px;
-    margin-bottom: 30px;
     height: calc(100vh - 64px - 30px - 1px);
-    border-radius: 5px;
-    padding-top: 1px;
     overflow:scroll;
     overflow-x: hidden;
+}
+
+.section-container-applications.active{
+    background-color: rgba(0, 0, 0, .5);
 }
 
 .block-applications{
@@ -260,11 +281,23 @@ body {
     border: 2px #ffffff;
 }
 
+.th-white.active{
+    background-color: rgba(0, 0, 0, .5)
+}
+
+
 .tr-white{
     background-color: #ffffff;
     height: 50px;
     overflow: hidden;
     cursor: pointer;
+}
+
+.tr-white:nth-child(2n+1).active{
+    background-color: rgba(0, 0, 0, .5)
+}
+.tr-white:nth-child(2n+2).active{
+    background-color: rgba(0, 0, 0, .5)
 }
 
 .tr-white:nth-child(2n+1){
@@ -289,8 +322,7 @@ body {
 .td-status{
     padding-left: 30px;
     max-width: 230px;
-    border-bottom-left-radius: 8px;
-    border-top-left-radius: 8px;
+
 
 }
 
@@ -439,4 +471,46 @@ body {
     font-weight: 600;
     margin-top: 6px;
     line-height: 1.5
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    width: 30%;
+    height: 50%;
+    right: 0;
+    bottom: 0;
+    overflow: auto;
+    background-color: #F5F5F5;
+    border-radius: 8px;
+    position: fixed;
+   top: 49.55%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+   z-index: 30
+  }
+
+.block-modal{
+    margin-top: 20px;
+    margin-left: 20px;
+}
+
+.text-modal-main{
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.button-close{
+    background-color: #cc6521;
+    color: white;
+    border-radius: 6px;
+    height: 30px;
+    width: min-content;
+    font-size: 14px;
+    font-weight: bold;
+    border-style: none;
+    cursor: pointer;
+    position: absolute;
+    right: 0;
+    top: 0 ;
 }

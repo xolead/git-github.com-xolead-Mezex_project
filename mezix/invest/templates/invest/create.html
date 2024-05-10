@@ -9,6 +9,8 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Мезекс инвестиции</title>
 
+    <script src={% static 'invest/js/create.js' %}></script>
+
     <link rel="shortcut icon" href= {% static 'invest/img/mezex_logo.png' %} type="image/png">
 
 	<link rel="stylesheet" href={% static 'invest/css/offers_create.css' %}>
@@ -54,7 +56,7 @@
 
                         <div class="container-header-content-create">
                             <a href ="{% url 'create' %}">
-                                <img src={% static 'invest/img/applic_act.png' %} class="pic-create">
+                                <img src={% static 'invest/img/create_act.png' %} class="pic-create">
                             </a>
                         </div>
 
@@ -79,21 +81,224 @@
             <div class="layout_container-content">
 
                 <div class="section-container-applications">
-                    <div class="text-applications">Создание заявки?</div>
-            
-                        
+                    <div class="text-applications">Форма запроса заявки</div>
 
+
+
+
+
+                        <div class="container_all_create">
+                            <div class="container_button_create">
+                                    <button onclick="create_new_applic()" class="button_create">Создать новую заявку</button>
+                            </div>
+
+                            <div class="flex-container-create">
+
+                                <div class="flex-item-create" id="1">
+
+                                    <div class="container_up_create">
+                                        <div class="date-fio-create" >12.02.24</div>
+                                        <div class="text-fio-create">Заяка № 546</div>
+                                    </div>
+
+                                    <div class="green-line"></div>
+                               
+                                    <div class="block_text">
+                                        <div class="text_main_create">Тип продукта: <div class="text_all_create">Крутой просто насмерть</div></div>
+                                        <div class="text_main_create">Тип актива: <div class="text_all_create">Ачепупеть актив на пол жизни</div></div>
+                                        <div class="text_main_create">Тип Клиента: <div class="text_all_create">Ну обычный чэл</div></div>
+                                    </div>
+    
+                                    <div class="block_but_delete">
+                                        <button id="1" onclick="delete_create(event)" class ="button_delete_little">Удалить</button>
+                                    </div>
+                                        
+                                </div>
+
+                                <div class="flex-item-create" id="1">
+
+                                    <div class="container_up_create">
+                                        <div class="date-fio-create" >12.02.24</div>
+                                        <div class="text-fio-create">Заяка № 546</div>
+                                    </div>
+
+                                    <div class="green-line"></div>
+                               
+                                    <div class="block_text">
+                                        <div class="text_main_create">Тип продукта: <div class="text_all_create">Крутой просто насмерть</div></div>
+                                        <div class="text_main_create">Тип актива: <div class="text_all_create">Ачепупеть актив на пол жизни</div></div>
+                                        <div class="text_main_create">Тип Клиента: <div class="text_all_create">Ну обычный чэл</div></div>
+                                    </div>
+    
+                                    <div class="block_but_delete">
+                                        <button id="1" onclick="delete_create(event)" class ="button_delete_little">Удалить</button>
+                                    </div>
+                                        
+                                </div>
+                                <div class="flex-item-create" id="1">
+
+                                    <div class="container_up_create">
+                                        <div class="date-fio-create" >12.02.24</div>
+                                        <div class="text-fio-create">Заяка № 546</div>
+                                    </div>
+
+                                    <div class="green-line"></div>
+                               
+                                    <div class="block_text">
+                                        <div class="text_main_create">Тип продукта: <div class="text_all_create">Крутой просто насмерть</div></div>
+                                        <div class="text_main_create">Тип актива: <div class="text_all_create">Ачепупеть актив на пол жизни</div></div>
+                                        <div class="text_main_create">Тип Клиента: <div class="text_all_create">Ну обычный чэл</div></div>
+                                    </div>
+    
+                                    <div class="block_but_delete">
+                                        <button id="1" onclick="delete_create(event)" class ="button_delete_little">Удалить</button>
+                                    </div>
+                                        
+                                </div>
+                                <div class="flex-item-create" id="1">
+
+                                    <div class="container_up_create">
+                                        <div class="date-fio-create" >12.02.24</div>
+                                        <div class="text-fio-create">Заяка № 546</div>
+                                    </div>
+
+                                    <div class="green-line"></div>
+                               
+                                    <div class="block_text">
+                                        <div class="text_main_create">Тип продукта: <div class="text_all_create">Крутой просто насмерть</div></div>
+                                        <div class="text_main_create">Тип актива: <div class="text_all_create">Ачепупеть актив на пол жизни</div></div>
+                                        <div class="text_main_create">Тип Клиента: <div class="text_all_create">Ну обычный чэл</div></div>
+                                    </div>
+    
+                                    <div class="block_but_delete">
+                                        <button id="1" onclick="delete_create(event)" class ="button_delete_little">Удалить</button>
+                                    </div>
+                                        
+                                </div>
+                                <div class="flex-item-create" id="1">
+
+                                    <div class="container_up_create">
+                                        <div class="date-fio-create" >12.02.24</div>
+                                        <div class="text-fio-create">Заяка № 546</div>
+                                    </div>
+
+                                    <div class="green-line"></div>
+                               
+                                    <div class="block_text">
+                                        <div class="text_main_create">Тип продукта: <div class="text_all_create">Крутой просто насмерть</div></div>
+                                        <div class="text_main_create">Тип актива: <div class="text_all_create">Ачепупеть актив на пол жизни</div></div>
+                                        <div class="text_main_create">Тип Клиента: <div class="text_all_create">Ну обычный чэл</div></div>
+                                    </div>
+    
+                                    <div class="block_but_delete">
+                                        <button id="1" onclick="delete_create(event)" class ="button_delete_little">Удалить</button>
+                                    </div>
+                                        
+                                </div>
+                                <div class="flex-item-create" id="1">
+
+                                    <div class="container_up_create">
+                                        <div class="date-fio-create" >12.02.24</div>
+                                        <div class="text-fio-create">Заяка № 546</div>
+                                    </div>
+
+                                    <div class="green-line"></div>
+                               
+                                    <div class="block_text">
+                                        <div class="text_main_create">Тип продукта: <div class="text_all_create">Крутой просто насмерть</div></div>
+                                        <div class="text_main_create">Тип актива: <div class="text_all_create">Ачепупеть актив на пол жизни</div></div>
+                                        <div class="text_main_create">Тип Клиента: <div class="text_all_create">Ну обычный чэл</div></div>
+                                    </div>
+    
+                                    <div class="block_but_delete">
+                                        <button id="1" onclick="delete_create(event)" class ="button_delete_little">Удалить</button>
+                                    </div>
+                                        
+                                </div>
+
+
+                            </div>
+                        </div>   
+
+
+
+
+
+
+                    <div class="main_body_create">
+                        <div class="bold_text">Данные продукта</div>
+                        <div class="field_for_fill">
+                            <div class="regular_small_text">Тип продукта:</div>
+                            <div class="box_for_select">
+                                <img src= {% static 'invest/img/green-triangle.png'%} class="arrow_for_select">
+                                <div class="small_green_vertical_line"></div>
+                                <select class="big_input_choise">
+                                    <option></option>
+                                    <option value ="1">Крутой продукт</option>
+                                    <option value ="2">Средний продукт</option>
+                                    <option value ="3">Инта v2.0</option>
+                                </select>
+                            </div>
                         </div>
-                    
+                        <div class="bold_text">Данные актива</div>
+                        <div class="field_for_fill">
+                            <div class="regular_small_text">Тип актива:</div>
+                            <div class="box_for_select">
+                                <img src= {% static 'invest/img/green-triangle.png'%} class="arrow_for_select">
+                                <div class="small_green_vertical_line"></div>
+                                <select class="big_input_choise">
+                                    <option></option>
+                                    <option>Первый</option>
+                                    <option>Второй</option>
+                                    <option>Третий</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="bold_text">Личность клиента</div>
+                        <div class="field_for_fill">
+                            <div class="regular_small_text">Тип клиента:</div>
+                            <div class="box_for_select">
+                                <img src= {% static 'invest/img/green-triangle.png'%} class="arrow_for_select">
+                                <div class="small_green_vertical_line"></div>
+                                <select class="big_input_choise">
+                                    <option></option>
+                                    <option>Физическое лицо</option>
+                                    <option>Юридическое лицо</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="bold_text">Параметры</div>
+                        <div class="field_for_fill2">
+                            <div class="regular_text">Минимальная сумма:</div>
+                            <input class="small_input" type="number"  name="" spellcheck="false" required>
+                            <div class="just_bold">руб.</div>
+                        </div>
+                        <div class="field_for_fill2">
+                            <div class="regular_text">Максимальная сумма:</div>
+                            <input class="small_input" type="number"  name="" spellcheck="false" required>
+                            <div class="just_bold">руб.</div>
+                        </div>
+                        <div class="field_for_fill2">
+                            <div class="summ">Срок:</div>
+                            <input class="big_input" type="date"  name="" spellcheck="false" required>
+                        </div>
+                        <div class="box_for_buttons">
+                            <button onclick="cansel_create_applic()" class="button_decline">Отменить</button>
+                            <button onclick="send_create_applic()" class="button_accept">Отправить</button>
+                        </div>
                     </div>
 
-                </div>
 
+
+
+
+                </div>
+                    
             </div>
             </div>
 
         </div>
-
     </div>
 
 

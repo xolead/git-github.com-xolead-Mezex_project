@@ -27,7 +27,7 @@
 
 <body>
 
-    <div class="container-overlay">
+    <div class="overlay">
         <div class="container-all">
             
             <div class="window"></div>
@@ -58,7 +58,7 @@
                         
                         <div class="container-header-content-create">
                             <a href ="{% url 'create' %}">
-                                <img src={% static 'invest/img/applic_pas.png' %} class="pic-create">
+                                <img src={% static 'invest/img/create_pas.png' %} class="pic-create">
                             </a>
                         </div>
 
@@ -126,18 +126,24 @@
 
                             </div>
         
-                            <div class="popup_buttons">
+
+                            <div class="popup_buttons2">
+                                <button onclick="btn(event)" class="button_accept">Предложить</button>
+                            </div> 
+                            <div class="popup_buttons" style="z-index:-1;">
                                 <a href = "{% url 'view_files' %}" target="_blank" style="text-decoration: none; color: black;">
                                 <button onclick="info()" class="button_for_information">
                                     Подробный отчёт
                                 </button>
-                            </a>
-                                <button class="button_for_information">Дополнительная информация</button>
-                                <button onclick="btn()" class="button_accept">Предложить</button>
+                                </a>
+
                                 <a href="{% url  'delete' info.id info.idInv %}">
                                 <button onclick="deletes()" id="button_decline">Отказаться</button>
                                 </a>
+
                             </div>
+                                
+                            
         
                             </div>
 
@@ -146,14 +152,39 @@
 
                     <table cellspacing="0"  class="table-ebat">
 
-                        <div id="modal" onclick="close_overlay_click(event)" class="modal">
-                         <div class="modal-content">``
-                            <button onclick="btn_close()" class="button-close">close</button>
+                        <div id="modal" class="modal" >
+                            <div class="container-modal">
 
-                            <div class="block-modal">
-                                <div class="text-modal-main">ABOBA</div>
+                                <div class="modal_up_content">
+                                    <div class="text_modal">Формирование предложения</div>
+                                    <button onclick="btn_close()" class="button-close">
+                                        <img src= {% static 'invest/img/cancel.png'%} class="pic_cancel">
+                                    </button>
+                                </div>
+
+                                <div class="modal_middle_content">
+                                    <div class="text_modal_main">Дата сделки: <div class="small_input">Cегодняшняя?</div></div>
+                                    <div class="text_modal_main">Сумма: <input class="small_input" type="number" placeholder="Сюда цифры суммы" spellcheck="false" required></div>
+                                    <div class="text_modal_main">Срок:<input class="small_input" type="date" placeholder="Сюда срок" spellcheck="false" required></div>
+                                    <div class="text_modal_main">Ставка:<input class="small_input" type="number" placeholder="Сюда цифры ставки" spellcheck="false" required></div>
+                                </div>
+
+                                <div class="green-line"></div>
+
+                                <div class="modal_down_content">
+                                    <div class="block_modal">
+                                        <div class="text_down_main">Условия выхода на сделку</div>
+                                    </div>
+
+                                    <div class="block_down_modal">
+                                        <div class="text_modal_all">Мяу мяу мяу, я котик, у меня лапки я с вами работаю, если вы будете любить меня и гладить</div>
+                                    </div>
+                                </div>
+
+                                <div class="popup_buttons3">
+                                    <button onclick="accept()" class="button_accept_little">Предложить</button>
+                                </div>
                             </div>
-                          </div>
                         </div>                      
 
 
@@ -175,7 +206,7 @@
                         <tbody class="tbody">
                             
                             {% for info in infos %}
-                                <tr onclick="get_id_delete(event)" id="{{ info.id }}" class="tr-white" style="cursor: pointer;">
+                                <tr onclick="get_id_delete(event)" id="{{ info.id }}" class="tr-white" >
                                     <td id={{ info.id }} class="td-all td-status">{{ info.status }}</td>
                                     <td id={{ info.id }} class="td-all td-fio">{{ info.FML }}</td>
                                     <td id={{ info.id }} class="td-all td-type">{{  info.TypeActiv }}</td>
@@ -192,6 +223,8 @@
                     </table>
 
                 </div>
+
+                <div class="overlay_for_buttons"></div>
 
             </div>
             </div>

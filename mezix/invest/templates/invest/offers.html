@@ -56,7 +56,7 @@
 
                         <div class="container-header-content-create">
                             <a href ="{% url 'create' %}">
-                                <img src={% static 'invest/img/applic_pas.png' %} class="pic-create">
+                                <img src={% static 'invest/img/create_pas.png' %} class="pic-create">
                             </a>
                         </div>
 
@@ -83,12 +83,19 @@
                 <div class="section-container-applications">
                         <div class="text-applications">Предложения</div>
 
-                    <div class="grid-container">  
-                    
+                    <div class="grid-container">
+                        
+                        <div class="box_for_sort">
+                            <img src= {% static 'invest/img/green-triangle.png'%} class="arrow_for_sort">
+                            <select class="big_sort_choise">
+                                <option selected>Сортировка предложений</option>
+                                <option>Только на рассмотрении</option>
+                                <option>Только исполнено</option>
+                                <option>Только отказано</option>
+                            </select>
+                        </div>
                         <div class="flex-container">
                         
-
-
                             {% for info in infos %}
                                  <a href = "{% url 'view_files' %}" target="_blank" style="text-decoration: none; color: black;"> 
                             

@@ -117,3 +117,18 @@ def delete(request, id, idInv):
     for i in offers:
         infos.add(HomeOutput(i.id,investor.id,i.id_Status.NameOfStatus, i.id_Client.FML, i.id_TypeActiv.NameOfTypeActiv, i.id_ViewActiv.NameOfViewActiv, i.sum, i.NameOfActiv))        
     return render(request, 'invest/index.html', {'infos' : infos, 'NameOfInvestor' : investor.name})
+
+@login_required
+def SortOffers(request, action):
+    clients = Account.objects.filter(username = request.user.username)
+    client = clients[0]
+    investors = Investor.objects.filter(id_Account = client.id)
+    investor = investors[0]
+    RI = RequestInvestor.objects.filter(id_Investor = investor.id)
+    infos = []
+    for i in RI:
+        j = MySuggestions.objects.filter(id_RequestInvestor = i.id, id_Status = Status.objects.get(pk=action).id)
+        for sugg in j:
+            infos.append(OffersOutput(id = sugg.id, status= sugg.id_Status.NameOfStatus, sum = sugg.sum, FML = sugg.id_RequestClient.id_Client.FML, ViewActiv = sugg.id_RequestClient.id_ViewActiv.NameOfViewActiv, TypeActiv = sugg.id_RequestClient.id_TypeActiv.NameOfTypeActiv))
+            
+    return render(request, 'invest/offers.html', {'infos' : infos})

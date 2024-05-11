@@ -151,8 +151,8 @@
                    
 
                     <table cellspacing="0"  class="table-ebat">
-
-                        <div id="modal" class="modal" >
+                    {% for info in infos %}
+                        <div id={{ info.modal }} class="modal" >
                             <div class="container-modal">
 
                                 <div class="modal_up_content">
@@ -164,9 +164,11 @@
 
                                 <div class="modal_middle_content">
                                     <div class="text_modal_main">Дата сделки: <div class="small_input">Cегодняшняя?</div></div>
-                                    <div class="text_modal_main">Сумма: <input class="small_input" type="number" placeholder="Сюда цифры суммы" spellcheck="false" required></div>
-                                    <div class="text_modal_main">Срок:<input class="small_input" type="date" placeholder="Сюда срок" spellcheck="false" required></div>
-                                    <div class="text_modal_main">Ставка:<input class="small_input" type="number" placeholder="Сюда цифры ставки" spellcheck="false" required></div>
+                                    <form action="head of chlen" method="POST">
+                                        <div class="text_modal_main">Сумма: <input class="small_input" type="number" placeholder= "{{ info.sum }}" spellcheck="false" required></div>
+                                        <div class="text_modal_main">Срок:<input class="small_input" type="number"  spellcheck="false" required></div>
+                                        <div class="text_modal_main">Ставка:<input class="small_input" type="number"  spellcheck="false" required></div>
+                                    </form>
                                 </div>
 
                                 <div class="green-line"></div>
@@ -186,7 +188,7 @@
                                 </div>
                             </div>
                         </div>                      
-
+                    {% endfor %}
 
                     
                         <thead class="table-head">

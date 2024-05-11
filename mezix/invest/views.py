@@ -20,6 +20,7 @@ class HomeOutput():
         self.sum = sum
         self.name = name
         self.popup = 'popup' + str(self.id)
+        self.modal = 'modal' + str(self.id)
 
 class OffersOutput():
     def __init__(self, id, FML, status, TypeActiv, ViewActiv, sum):
@@ -29,6 +30,18 @@ class OffersOutput():
         self.TypeActiv = TypeActiv
         self.ViewActiv = ViewActiv
         self.sum = sum
+
+class CreateOutput():
+    def __init__(self, id, FinProduct, TypeActiv, ViewActiv, ViewClient, max_sum, min_sum, max_term, min_term):
+        self.id = id
+        self.FinProduct = FinProduct
+        self.TypeActiv = TypeActiv
+        self.ViewActiv = ViewActiv
+        self.ViewClient = ViewClient
+        self.max_sum = max_sum
+        self.min_sum = min_sum
+        self.max_term = max_term
+        self.min_term = min_term
 
 @login_required
 def home(request):
@@ -71,15 +84,36 @@ def offers(request):
     RI = RequestInvestor.objects.filter(id_Investor = investor.id)
     infos = []
     for i in RI:
-        j = MySuggestions.objects.filter(id_RequestInvestor = i.id)
+        j = MySuggestions.objects.all( )
         for sugg in j:
             infos.append(OffersOutput(id = sugg.id, status= sugg.id_Status.NameOfStatus, sum = sugg.sum, FML = sugg.id_RequestClient.id_Client.FML, ViewActiv = sugg.id_RequestClient.id_ViewActiv.NameOfViewActiv, TypeActiv = sugg.id_RequestClient.id_TypeActiv.NameOfTypeActiv))
             
-    return render(request, 'invest/offers.html', {'infos' : infos})
+    return render(request, 'invest/offers.html', {'infos' : infos, 'NameOfInvestor' : investor.name})
 
 @login_required
 def create(request):
-    return render(request, 'invest/create.html')
+    clients = Account.objects.filter(username = request.user.username)
+    client = clients[0]
+    investors = Investor.objects.filter(id_Account = client.id)
+    investor = investors[0]
+    RI = RequestInvestor.objects.filter(id_Investor = investor.id)
+    infos = []
+    for ReqInv in RI:
+        infos.append(CreateOutput(id = ReqInv.id, FinProduct = ReqInv.id_FinProduct.NameOfFinProduct, TypeActiv= ReqInv.id_TypeActiv.NameOfTypeActiv, ViewActiv= ReqInv.id_ViewActiv.NameOfViewActiv, ViewClient=ReqInv.id_ViewClient.NameOfViewClient, max_sum = ReqInv.max_sum, min_sum=ReqInv.min_sum, max_term=ReqInv.max_term, min_term=ReqInv.min_term))
+    return render(request, 'invest/create.html', {'infos' : infos, 'NameOfInvestor' : investor.name})
+
+@login_required
+def CreateDelete(request, id):
+    RequestInvestor.objects.filter(pk=id).delete()
+    clients = Account.objects.filter(username = request.user.username)
+    client = clients[0]
+    investors = Investor.objects.filter(id_Account = client.id)
+    investor = investors[0]
+    RI = RequestInvestor.objects.filter(id_Investor = investor.id)
+    infos = []
+    for ReqInv in RI:
+        infos.append(CreateOutput(id = ReqInv.id, FinProduct = ReqInv.id_FinProduct.NameOfFinProduct, TypeActiv= ReqInv.id_TypeActiv.NameOfTypeActiv, ViewActiv= ReqInv.id_ViewActiv.NameOfViewActiv, ViewClient=ReqInv.id_ViewClient.NameOfViewClient, max_sum = ReqInv.max_sum, min_sum=ReqInv.min_sum, max_term=ReqInv.max_term, min_term=ReqInv.min_term))
+    return render(request, 'invest/create.html', {'infos' : infos, 'NameOfInvestor' : investor.name})
 
 @login_required
 def view_files(request):
@@ -87,7 +121,7 @@ def view_files(request):
 
 
 @login_required
-def delete(request, id, idInv):
+def HomeDelete(request, id, idInv):
     idClient = RequestClient.objects.get(pk = id)
     idInvestor = Investor.objects.get(pk = idInv)
     dele = Answer.objects.filter(id_RequestClient = idClient.id, id_Investor = idInvestor.id)

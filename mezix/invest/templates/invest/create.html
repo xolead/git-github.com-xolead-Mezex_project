@@ -60,7 +60,7 @@
                             </a>
                         </div>
 
-                        <div class="container-header-content-fio-fio">{{ request.user.username }}</div>
+                        <div class="container-header-content-fio-fio">{{ NameOfInvestor }}</div>
 
                         {% if user.is_authenticated %}   
                             <div class ="container-header-content-fio-out">
@@ -93,128 +93,39 @@
                             </div>
 
                             <div class="flex-container-create">
-
-                                <div class="flex-item-create" id="1">
+                                {% for info in infos %}
+                                <div class="flex-item-create" name = 'id_inv' id="{{ info.id }}">
 
                                     <div class="container_up_create">
-                                        <div class="date-fio-create" >12.02.24</div>
-                                        <div class="text-fio-create">Заяка № 546</div>
+                                    
+                                        <div class="text-fio-create">Заяка № {{ info.id }}</div>
                                     </div>
 
                                     <div class="green-line"></div>
                                
                                     <div class="block_text">
-                                        <div class="text_main_create">Тип продукта: <div class="text_all_create">Крутой просто насмерть</div></div>
-                                        <div class="text_main_create">Тип актива: <div class="text_all_create">Ачепупеть актив на пол жизни</div></div>
-                                        <div class="text_main_create">Тип Клиента: <div class="text_all_create">Ну обычный чэл</div></div>
+                        
+                                        <div class="text_main_create">Тип продукта: <div class="text_all_create">{{info.FinProduct}}</div></div>
+                                        <div class="text_main_create">Тип актива: <div class="text_all_create">{{info.TypeActiv}}</div></div>
+                                        <div class="text_main_create">Вид Клиента: <div class="text_all_create">{{info.ViewActiv}}</div></div>
+                                        <div class="text_main_create">Тип Клиента: <div class="text_all_create">{{info.ViewClient}}</div></div>
+                                        <div class="text_main_create">Максимальная сумма: <div class="text_all_create">{{info.max_sum}}</div></div>
+                                        <div class="text_main_create">Минимальная сумма: <div class="text_all_create">{{info.min_sum}}</div></div>
+                                        <div class="text_main_create">Максимальный срок: <div class="text_all_create">{{info.max_term}}</div></div>
+                                        <div class="text_main_create">Минимальный срок: <div class="text_all_create">{{info.min_term}}</div></div>
                                     </div>
     
                                     <div class="block_but_delete">
-                                        <button id="1" onclick="delete_create(event)" class ="button_delete_little">Удалить</button>
+                                        <a href ="{% url 'CreateDelete' info.id %}">
+                                        <button id='{{ info.id }}' onclick="delete_create(event)" class ="button_delete_little">Удалить</button>
+                                        </a>
                                     </div>
                                         
                                 </div>
-
-                                <div class="flex-item-create" id="1">
-
-                                    <div class="container_up_create">
-                                        <div class="date-fio-create" >12.02.24</div>
-                                        <div class="text-fio-create">Заяка № 546</div>
-                                    </div>
-
-                                    <div class="green-line"></div>
-                               
-                                    <div class="block_text">
-                                        <div class="text_main_create">Тип продукта: <div class="text_all_create">Крутой просто насмерть</div></div>
-                                        <div class="text_main_create">Тип актива: <div class="text_all_create">Ачепупеть актив на пол жизни</div></div>
-                                        <div class="text_main_create">Тип Клиента: <div class="text_all_create">Ну обычный чэл</div></div>
-                                    </div>
-    
-                                    <div class="block_but_delete">
-                                        <button id="1" onclick="delete_create(event)" class ="button_delete_little">Удалить</button>
-                                    </div>
+                                {% endfor %}
+                            
                                         
-                                </div>
-                                <div class="flex-item-create" id="1">
-
-                                    <div class="container_up_create">
-                                        <div class="date-fio-create" >12.02.24</div>
-                                        <div class="text-fio-create">Заяка № 546</div>
-                                    </div>
-
-                                    <div class="green-line"></div>
-                               
-                                    <div class="block_text">
-                                        <div class="text_main_create">Тип продукта: <div class="text_all_create">Крутой просто насмерть</div></div>
-                                        <div class="text_main_create">Тип актива: <div class="text_all_create">Ачепупеть актив на пол жизни</div></div>
-                                        <div class="text_main_create">Тип Клиента: <div class="text_all_create">Ну обычный чэл</div></div>
-                                    </div>
-    
-                                    <div class="block_but_delete">
-                                        <button id="1" onclick="delete_create(event)" class ="button_delete_little">Удалить</button>
-                                    </div>
-                                        
-                                </div>
-                                <div class="flex-item-create" id="1">
-
-                                    <div class="container_up_create">
-                                        <div class="date-fio-create" >12.02.24</div>
-                                        <div class="text-fio-create">Заяка № 546</div>
-                                    </div>
-
-                                    <div class="green-line"></div>
-                               
-                                    <div class="block_text">
-                                        <div class="text_main_create">Тип продукта: <div class="text_all_create">Крутой просто насмерть</div></div>
-                                        <div class="text_main_create">Тип актива: <div class="text_all_create">Ачепупеть актив на пол жизни</div></div>
-                                        <div class="text_main_create">Тип Клиента: <div class="text_all_create">Ну обычный чэл</div></div>
-                                    </div>
-    
-                                    <div class="block_but_delete">
-                                        <button id="1" onclick="delete_create(event)" class ="button_delete_little">Удалить</button>
-                                    </div>
-                                        
-                                </div>
-                                <div class="flex-item-create" id="1">
-
-                                    <div class="container_up_create">
-                                        <div class="date-fio-create" >12.02.24</div>
-                                        <div class="text-fio-create">Заяка № 546</div>
-                                    </div>
-
-                                    <div class="green-line"></div>
-                               
-                                    <div class="block_text">
-                                        <div class="text_main_create">Тип продукта: <div class="text_all_create">Крутой просто насмерть</div></div>
-                                        <div class="text_main_create">Тип актива: <div class="text_all_create">Ачепупеть актив на пол жизни</div></div>
-                                        <div class="text_main_create">Тип Клиента: <div class="text_all_create">Ну обычный чэл</div></div>
-                                    </div>
-    
-                                    <div class="block_but_delete">
-                                        <button id="1" onclick="delete_create(event)" class ="button_delete_little">Удалить</button>
-                                    </div>
-                                        
-                                </div>
-                                <div class="flex-item-create" id="1">
-
-                                    <div class="container_up_create">
-                                        <div class="date-fio-create" >12.02.24</div>
-                                        <div class="text-fio-create">Заяка № 546</div>
-                                    </div>
-
-                                    <div class="green-line"></div>
-                               
-                                    <div class="block_text">
-                                        <div class="text_main_create">Тип продукта: <div class="text_all_create">Крутой просто насмерть</div></div>
-                                        <div class="text_main_create">Тип актива: <div class="text_all_create">Ачепупеть актив на пол жизни</div></div>
-                                        <div class="text_main_create">Тип Клиента: <div class="text_all_create">Ну обычный чэл</div></div>
-                                    </div>
-    
-                                    <div class="block_but_delete">
-                                        <button id="1" onclick="delete_create(event)" class ="button_delete_little">Удалить</button>
-                                    </div>
-                                        
-                                </div>
+                                
 
 
                             </div>
@@ -226,6 +137,7 @@
 
 
                     <div class="main_body_create">
+                        <form action="ABOBA_STEPA" method="POST">
                         <div class="bold_text">Данные продукта</div>
                         <div class="field_for_fill">
                             <div class="regular_small_text">Тип продукта:</div>
@@ -240,6 +152,8 @@
                                 </select>
                             </div>
                         </div>
+
+
                         <div class="bold_text">Данные актива</div>
                         <div class="field_for_fill">
                             <div class="regular_small_text">Тип актива:</div>
@@ -254,6 +168,8 @@
                                 </select>
                             </div>
                         </div>
+
+
                         <div class="bold_text">Личность клиента</div>
                         <div class="field_for_fill">
                             <div class="regular_small_text">Тип клиента:</div>
@@ -287,6 +203,8 @@
                             <button onclick="cansel_create_applic()" class="button_decline">Отменить</button>
                             <button onclick="send_create_applic()" class="button_accept">Отправить</button>
                         </div>
+
+                        </form>
                     </div>
 
 

@@ -10,7 +10,9 @@ urlpatterns = [
     path('create/', views.create, name='create'),
     path('view_files/', views.view_files, name='view_files'),
     path('delete/<int:id>/<int:idInv>', views.HomeDelete, name='delete' ),
-    path('create/<int:id>', views.CreateDelete, name='CreateDelete')
+    path('create/<int:id>', views.CreateDelete, name='CreateDelete'),
+    path('newpred/<int:idAns>', views.NewPred, name='NewPred'),
+    path('newrequest', views.NewRequest, name='NewRequest'),
 ]
 
 

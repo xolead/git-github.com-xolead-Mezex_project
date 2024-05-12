@@ -1,4 +1,5 @@
 import random as rn
+from django.urls import reverse
 from django.http import HttpResponse
 from django.shortcuts import render
 from django.contrib.auth import authenticate, login
@@ -10,7 +11,8 @@ from .models import Account, Investor, ViewClient, Status, TypeActiv, FinProduct
 
 
 class HomeOutput():
-    def __init__(self,id,idInv, status, FML, TypeActiv, ViewActiv, sum, name):
+    def __init__(self,idAns,id,idInv, status, FML, TypeActiv, ViewActiv, sum, name):
+        self.idAns = idAns
         self.id = id
         self.idInv = idInv
         self.status = status
@@ -42,9 +44,36 @@ class CreateOutput():
         self.min_sum = min_sum
         self.max_term = max_term
         self.min_term = min_term
+@login_required
+def NewRequest(request):
+    idfin = request.POST.get('FinProduct')
+    a = FinProduct.objects.get(pk=idfin)
+
+    return HttpResponse({idfin})
+
+@login_required
+def NewPred(request, idAns):
+    stavka = request.POST.get('stavka')
+    summ = request.POST.get('summ')
+    srok = request.POST.get('srok')  
+    special = request.POST.get('special')
+    ans = Answer.objects.get(pk=idAns)  
+    ans.id_Status = Status.objects.get(pk=3)
+    ans.save()
+    a = MySuggestions(id_RequestClient = ans.id_RequestClient, id_Investor = Investor.objects.filter(pk=ans.id_Investor.id)[0], id_Status = Status.objects.get(pk=2), sum= summ, stavka = stavka, term = srok, SpecialConditions = special)
+    a.save()
+    return HttpResponseRedirect(reverse('home') )
 
 @login_required
 def home(request):
+    '''
+    if request.method =='POST':
+        stavka = request.POST.get('stavka')
+        summ = request.POST.get('summ')
+        srok = request.POST.get('srok')
+        ansid = request.POST.get('ansid')
+        return HttpResponse(f"<h2>Name: {ansid}  Age:</h2>")
+    '''
     clients = Account.objects.filter(username = request.user.username)
     client = clients[0]
     investors = Investor.objects.filter(id_Account = client.id)
@@ -66,7 +95,7 @@ def home(request):
                     offers.append(i)
     infos = set()
     for i in offers:
-        infos.add(HomeOutput(i.id,investor.id,i.id_Status.NameOfStatus, i.id_Client.FML, i.id_TypeActiv.NameOfTypeActiv, i.id_ViewActiv.NameOfViewActiv, i.sum, i.NameOfActiv))        
+        infos.add(HomeOutput(Answer.objects.get(id_Investor = investor.id, id_RequestClient=i.id).id,i.id,investor.id,i.id_Status.NameOfStatus, i.id_Client.FML, i.id_TypeActiv.NameOfTypeActiv, i.id_ViewActiv.NameOfViewActiv, i.sum, i.NameOfActiv))        
     return render(request, 'invest/index.html', {'infos' : infos, 'NameOfInvestor' : investor.name})
 
 
@@ -83,10 +112,16 @@ def offers(request):
     investor = investors[0]
     RI = RequestInvestor.objects.filter(id_Investor = investor.id)
     infos = []
-    for i in RI:
-        j = MySuggestions.objects.all( )
-        for sugg in j:
-            infos.append(OffersOutput(id = sugg.id, status= sugg.id_Status.NameOfStatus, sum = sugg.sum, FML = sugg.id_RequestClient.id_Client.FML, ViewActiv = sugg.id_RequestClient.id_ViewActiv.NameOfViewActiv, TypeActiv = sugg.id_RequestClient.id_TypeActiv.NameOfTypeActiv))
+    
+    j = MySuggestions.objects.filter(id_Investor = investor.id, id_Status = Status.objects.get(pk=2))
+    for sugg in j:
+        infos.append(OffersOutput(id = sugg.id, status= sugg.id_Status.NameOfStatus, sum = sugg.sum, FML = sugg.id_RequestClient.id_Client.FML, ViewActiv = sugg.id_RequestClient.id_ViewActiv.NameOfViewActiv, TypeActiv = sugg.id_RequestClient.id_TypeActiv.NameOfTypeActiv))
+    j = MySuggestions.objects.filter(id_Investor = investor.id, id_Status = Status.objects.get(pk=3))
+    for sugg in j:
+        infos.append(OffersOutput(id = sugg.id, status= sugg.id_Status.NameOfStatus, sum = sugg.sum, FML = sugg.id_RequestClient.id_Client.FML, ViewActiv = sugg.id_RequestClient.id_ViewActiv.NameOfViewActiv, TypeActiv = sugg.id_RequestClient.id_TypeActiv.NameOfTypeActiv))
+    j = MySuggestions.objects.filter(id_Investor = investor.id, id_Status = Status.objects.get(pk=1))
+    for sugg in j:
+        infos.append(OffersOutput(id = sugg.id, status= sugg.id_Status.NameOfStatus, sum = sugg.sum, FML = sugg.id_RequestClient.id_Client.FML, ViewActiv = sugg.id_RequestClient.id_ViewActiv.NameOfViewActiv, TypeActiv = sugg.id_RequestClient.id_TypeActiv.NameOfTypeActiv))
             
     return render(request, 'invest/offers.html', {'infos' : infos, 'NameOfInvestor' : investor.name})
 
@@ -166,3 +201,6 @@ def SortOffers(request, action):
             infos.append(OffersOutput(id = sugg.id, status= sugg.id_Status.NameOfStatus, sum = sugg.sum, FML = sugg.id_RequestClient.id_Client.FML, ViewActiv = sugg.id_RequestClient.id_ViewActiv.NameOfViewActiv, TypeActiv = sugg.id_RequestClient.id_TypeActiv.NameOfTypeActiv))
             
     return render(request, 'invest/offers.html', {'infos' : infos})
+
+
+

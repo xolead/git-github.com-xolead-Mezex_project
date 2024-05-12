@@ -137,18 +137,18 @@
 
 
                     <div class="main_body_create">
-                        <form action="ABOBA_STEPA" method="POST">
+                        <form action="{% url 'NewRequest' %}" method="POST">
+                            {% csrf_token %}
                         <div class="bold_text">Данные продукта</div>
                         <div class="field_for_fill">
                             <div class="regular_small_text">Тип продукта:</div>
                             <div class="box_for_select">
                                 <img src= {% static 'invest/img/green-triangle.png'%} class="arrow_for_select">
                                 <div class="small_green_vertical_line"></div>
-                                <select class="big_input_choise">
-                                    <option></option>
-                                    <option value ="1">Крутой продукт</option>
-                                    <option value ="2">Средний продукт</option>
-                                    <option value ="3">Инта v2.0</option>
+                                <select class="big_input_choise" name='FinProduct'>
+                                    <option input value ="1">Крутой продукт</option>
+                                    <option input value ="2">Средний продукт</option>
+                                    <option input value ="3">Инта v2.0</option>
                                 </select>
                             </div>
                         </div>
@@ -200,8 +200,8 @@
                             <input class="big_input" type="date"  name="" spellcheck="false" required>
                         </div>
                         <div class="box_for_buttons">
-                            <button onclick="cansel_create_applic()" class="button_decline">Отменить</button>
-                            <button onclick="send_create_applic()" class="button_accept">Отправить</button>
+                            <input  onclick="cansel_create_applic()" type="submit" class="button_decline" value="Отменить" />
+                            <input  onclick="send_create_applic()" type="submit" class="button_accept" value="Отправить" />
                         </div>
 
                         </form>

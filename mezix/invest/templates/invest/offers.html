@@ -9,7 +9,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Мезекс инвестиции</title>
 
-   
+    <script src={% static 'invest/js/view.js' %}></script>
 
     <link rel="shortcut icon" href= {% static 'invest/img/mezex_logo.png' %} type="image/png">
 
@@ -87,51 +87,57 @@
                         
                         <div class="box_for_sort">
                             <img src= {% static 'invest/img/green-triangle.png'%} class="arrow_for_sort">
-                            <select class="big_sort_choise">
-                                <option selected>Сортировка предложений</option>
-                                <option>Только на рассмотрении</option>
-                                <option>Только исполнено</option>
-                                <option>Только отказано</option>
+                            <select id="dnd" onclick="get_id_sort(event)" class="big_sort_choise">
+                                <option id="0" >Сортировка предложений</option>
+                                <option id="1" >Только на рассмотрении</option>
+                                <option id="2" >Только исполнено</option>
+                                <option id="3" >Только отказано</option>
                             </select>
                         </div>
                         <div class="flex-container">
                         
                             {% for info in infos %}
-                                 <a href = "{% url 'view_files' %}" target="_blank" style="text-decoration: none; color: black;"> 
-                            
-                                <div onclick="offers(event)" class="flex-item" id="{{ info.id }}">
-                                <div id="{{ info.id }}" class="text-fio">{{info.FML}}</div>
+                                 
 
                                 {% if info.status == 'Одобрена' %}
-                                <div id="{{ info.id }}" class="text-status"><img id="{{ info.id }}" src= {% static 'invest/img/green_dot.png' %} class="pic-status">Одобрено</div>
-                                <div id="{{ info.id }}" class="green-line"></div>
+                                    <div onclick="offers(event)" class="filterDiv odob flex-item" id="{{ info.id }}">
+                                        <a href = "{% url 'view_files' %}" target="_blank" style="text-decoration: none; color: black; height: 292px;"> 
+                                        <div id="{{ info.id }}" class="text-fio">{{info.FML}}</div>
+                                        <div id="{{ info.id }}" class="text-status"><img id="{{ info.id }}" src= {% static 'invest/img/green_dot.png' %} class="pic-status">Одобрено</div>
+                                        <div id="{{ info.id }}" class="green-line"></div>
                                 {% endif %}
 
                                 {% if info.status == 'Ожидает ответа' %}
-                                <div id="{{ info.id }}" class="text-status"><img id="{{ info.id }}" src= {% static 'invest/img/yellow_dot.png' %} class="pic-status">Ожидает ответа</div>
-                                <div id="{{ info.id }}" class="green-line"></div>
+                                    <div onclick="offers(event)" class="filterDiv time flex-item" id="{{ info.id }}">
+                                        <a href = "{% url 'view_files' %}" target="_blank" style="text-decoration: none; color: black; height: 292px;"> 
+                                        <div id="{{ info.id }}" class="text-fio">{{info.FML}}</div>
+                                        <div id="{{ info.id }}" class="text-status"><img id="{{ info.id }}" src= {% static 'invest/img/yellow_dot.png' %} class="pic-status">Ожидает ответа</div>
+                                        <div id="{{ info.id }}" class="green-line"></div>
                                 {% endif %}
 
                                 {% if info.status == 'Отказано' %}
-                                <div id="{{ info.id }}" class="text-status"><img id="{{ info.id }}" src= {% static 'invest/img/red_dot.png' %} class="pic-status">Отказано</div>
-                                <div id="{{ info.id }}" class="green-line"></div>
+                                    <div onclick="offers(event)" class="filterDiv otkaz flex-item" id="{{ info.id }}">
+                                        <a href = "{% url 'view_files' %}" target="_blank" style="text-decoration: none; color: black;  height: 292px;"> 
+                                        <div id="{{ info.id }}" class="text-fio">{{info.FML}}</div>
+                                        <div id="{{ info.id }}" class="text-status"><img id="{{ info.id }}" src= {% static 'invest/img/red_dot.png' %} class="pic-status">Отказано</div>
+                                        <div id="{{ info.id }}" class="green-line"></div>
                                 {% endif %}
                                 
                                 <div id="{{ info.id }}" class="block-type">
-                                    <div id="{{ info.id }}" class="text-type">Тип актива: <span id="{{ info.id }}" class="text-type-view-more">{{ info.TypeActiv }}</span></div>
+                                    <div id="{{ info.id }}" class="text-type">Тип актива: <span id="{{ info.id }}" class="text-type-view-more">Я Мяу мяу мяу, я котик, у меня лапки я с вами работаю, если вы будете любить меня и гладить</span></div>
+                                    <div id="{{ info.id }}" class="text-type">хуйзалупа пупа лупа: <span id="{{ info.id }}" class="text-type-view-more">{{ info.TypeActiv }}</span></div>
                                 </div>
                                 
-                                <div id="{{ info.id }}" class="block-view">
-                                    <div id="{{ info.id }}" class="text-view">Вид актива: <span id="{{ info.id }}" class="text-type-view-more">{{ info.ViewActiv }}</span></div>
-                                </div>
-
+                                
                                 <div id="{{ info.id }}" class="green-line green-line-down"></div>
                                 <div id="{{ info.id }}" class="block-sum">
                                     <div id="{{ info.id }}" class="text-sum">Сумма: <span id="{{ info.id }}" class="text-sum-digits">{{ info.sum }}руб.</span></div>
                                 </div>
+                            </a> 
                                 </div>
-                                </a> 
+                                
                             {% endfor %}   
+                            
                             
                         </div>
                     

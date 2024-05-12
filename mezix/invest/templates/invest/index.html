@@ -125,7 +125,7 @@
                                 </div>
 
                             </div>
-        
+                        
 
                             <div class="popup_buttons2">
                                 <button onclick="btn(event)" class="button_accept">Предложить</button>
@@ -152,8 +152,8 @@
 
                     <table cellspacing="0"  class="table-ebat">
                     {% for info in infos %}
-                        <div id={{ info.modal }} class="modal" >
-                            <div class="container-modal">
+                        <div class="modal" >
+                            <div id={{ info.modal }} class="container-modal">
 
                                 <div class="modal_up_content">
                                     <div class="text_modal">Формирование предложения</div>
@@ -163,13 +163,14 @@
                                 </div>
 
                                 <div class="modal_middle_content">
+                            <form action="{% url 'NewPred' info.idAns %}" method="POST">                      
+                                {% csrf_token %}
                                     <div class="text_modal_main">Дата сделки: <div class="small_input">Cегодняшняя?</div></div>
-                                    <form action="head of chlen" method="POST">
-                                        <div class="text_modal_main">Сумма: <input class="small_input" type="number" placeholder= "{{ info.sum }}" spellcheck="false" required></div>
-                                        <div class="text_modal_main">Срок:<input class="small_input" type="number"  spellcheck="false" required></div>
-                                        <div class="text_modal_main">Ставка:<input class="small_input" type="number"  spellcheck="false" required></div>
-                                    </form>
-                                </div>
+                                        <div name='ansid'>{{ info.idAns }} отсюда удали потом</div>
+                                        <div class="text_modal_main">Сумма: <input class="small_input" type="number" name = 'summ'placeholder= "{{ info.sum }}" spellcheck="false" required></div>
+                                        <div class="text_modal_main">Срок:<input class="small_input" type="number"  name = 'srok'spellcheck="false" required></div>
+                                        <div class="text_modal_main">Ставка:<input class="small_input" type="number"  name = 'stavka'spellcheck="false" required></div>
+                                     </div>
 
                                 <div class="green-line"></div>
 
@@ -179,13 +180,14 @@
                                     </div>
 
                                     <div class="block_down_modal">
-                                        <div class="text_modal_all">Мяу мяу мяу, я котик, у меня лапки я с вами работаю, если вы будете любить меня и гладить</div>
+                                        <div class="text_modal_all"><textarea class="big_input"cols="40" rows="3" type='text' name = 'special' spellcheck="false" ></textarea></div>
                                     </div>
                                 </div>
 
                                 <div class="popup_buttons3">
-                                    <button onclick="accept()" class="button_accept_little">Предложить</button>
+                                    <input  onclick="accept()" type="submit" class="button_accept_little" value="Предложить" />
                                 </div>
+                        </form>
                             </div>
                         </div>                      
                     {% endfor %}

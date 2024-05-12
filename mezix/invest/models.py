@@ -85,11 +85,12 @@ class RequestClient(models.Model):
 
 class MySuggestions(models.Model):
     id_RequestClient = models.ForeignKey(RequestClient, on_delete = models.SET_NULL, null = True)
-    id_RequestInvestor = models.ForeignKey(RequestInvestor, on_delete = models.SET_NULL, null = True)
+    id_Investor = models.ForeignKey(Investor, on_delete = models.CASCADE)
     id_Status = models.ForeignKey(Status, on_delete = models.PROTECT)
-    SpecialConditions = models.TextField()
+    SpecialConditions = models.TextField(null = True)
     sum = models.IntegerField()
     term = models.IntegerField()
+    stavka = models.IntegerField()
 
 
 class LogStatus(models.Model):

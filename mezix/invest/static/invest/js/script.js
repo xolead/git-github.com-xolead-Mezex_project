@@ -83,7 +83,8 @@ function accept(){
 }
 
 function btn(){
-    var modal = document.querySelector('.container-modal');
+    var modal = document.getElementById('modal' + elem );
+    console.log(modal)
 
     document.querySelector(".overlay_for_buttons").classList.add('active');
     
@@ -106,7 +107,7 @@ function btn(){
 }
 
 function btn_close(){
-    var modal = document.querySelector('.container-modal');
+    var modal = document.getElementById('modal' + elem );
     
     modal.classList.remove("active");
         document.querySelector(".overlay_for_buttons").classList.remove('active');
@@ -121,7 +122,7 @@ function btn_close(){
 }
 
 window.onclick = function (event) {
-    var modal = document.querySelector('.container-modal');
+    var modal = document.getElementById('modal' + elem )
     modal_out = document.querySelector('.overlay_for_buttons')
     if (event.target == modal_out) {
         modal.classList.remove("active");
@@ -135,5 +136,3 @@ window.onclick = function (event) {
     }
     }
 }
-
-

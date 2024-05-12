@@ -166,7 +166,6 @@
                             <form action="{% url 'NewPred' info.idAns %}" method="POST">                      
                                 {% csrf_token %}
                                     <div class="text_modal_main">Дата сделки: <div class="small_input">Cегодняшняя?</div></div>
-                                        <div name='ansid'>{{ info.idAns }} отсюда удали потом</div>
                                         <div class="text_modal_main">Сумма: <input class="small_input" type="number" name = 'summ'placeholder= "{{ info.sum }}" spellcheck="false" required></div>
                                         <div class="text_modal_main">Срок:<input class="small_input" type="number"  name = 'srok'spellcheck="false" required></div>
                                         <div class="text_modal_main">Ставка:<input class="small_input" type="number"  name = 'stavka'spellcheck="false" required></div>
@@ -187,7 +186,7 @@
                                 <div class="popup_buttons3">
                                     <input  onclick="accept()" type="submit" class="button_accept_little" value="Предложить" />
                                 </div>
-                        </form>
+                            </form>
                             </div>
                         </div>                      
                     {% endfor %}

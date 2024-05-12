@@ -137,7 +137,7 @@
 
 
                     <div class="main_body_create">
-                        <form action="{% url 'NewRequest' %}" method="POST">
+                <form action="{% url 'NewRequest' %}" method="POST">
                             {% csrf_token %}
                         <div class="bold_text">Данные продукта</div>
                         <div class="field_for_fill">
@@ -146,9 +146,9 @@
                                 <img src= {% static 'invest/img/green-triangle.png'%} class="arrow_for_select">
                                 <div class="small_green_vertical_line"></div>
                                 <select class="big_input_choise" name='FinProduct'>
-                                    <option input value ="1">Крутой продукт</option>
-                                    <option input value ="2">Средний продукт</option>
-                                    <option input value ="3">Инта v2.0</option>
+                                    <option input value ="1">Ипотека</option>
+                                    <option input value ="2">Лизинг</option>
+                                    <option input value ="3">Продажа</option>
                                 </select>
                             </div>
                         </div>
@@ -160,11 +160,23 @@
                             <div class="box_for_select">
                                 <img src= {% static 'invest/img/green-triangle.png'%} class="arrow_for_select">
                                 <div class="small_green_vertical_line"></div>
-                                <select class="big_input_choise">
-                                    <option></option>
-                                    <option>Первый</option>
-                                    <option>Второй</option>
-                                    <option>Третий</option>
+                                <select class="big_input_choise" name='TypeActiv'>
+                                    <option input value ="1">Недвижимость</option>
+                                    <option input value ="2">Транспортное средство</option>
+                                    <option input value ="3">Прицеп</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="field_for_fill">
+                            <div class="regular_small_text">Вид актива:</div>
+                            <div class="box_for_select">
+                                <img src= {% static 'invest/img/green-triangle.png'%} class="arrow_for_select">
+                                <div class="small_green_vertical_line"></div>
+                                <select class="big_input_choise" name='Activ'>
+                                    <option input value ="1">Недвижимость</option>
+                                    <option input value ="2">Движимость</option>
+                                    <option input value ="3">Инвестиция</option>
                                 </select>
                             </div>
                         </div>
@@ -176,10 +188,9 @@
                             <div class="box_for_select">
                                 <img src= {% static 'invest/img/green-triangle.png'%} class="arrow_for_select">
                                 <div class="small_green_vertical_line"></div>
-                                <select class="big_input_choise">
-                                    <option></option>
-                                    <option>Физическое лицо</option>
-                                    <option>Юридическое лицо</option>
+                                <select class="big_input_choise" name='ViewClient'>
+                                    <option input value ="1">Физическое лицо</option>
+                                    <option input value ="2">Юридическое лицо</option>
                                 </select>
                             </div>
                         </div>
@@ -187,24 +198,31 @@
                         <div class="bold_text">Параметры</div>
                         <div class="field_for_fill2">
                             <div class="regular_text">Минимальная сумма:</div>
-                            <input class="small_input" type="number"  name="" spellcheck="false" required>
+                            <input class="small_input" type="number"  name="min_summ" spellcheck="false" required>
                             <div class="just_bold">руб.</div>
                         </div>
                         <div class="field_for_fill2">
                             <div class="regular_text">Максимальная сумма:</div>
-                            <input class="small_input" type="number"  name="" spellcheck="false" required>
+                            <input class="small_input" type="number"  name="max_summ" spellcheck="false" required>
                             <div class="just_bold">руб.</div>
                         </div>
                         <div class="field_for_fill2">
-                            <div class="summ">Срок:</div>
-                            <input class="big_input" type="date"  name="" spellcheck="false" required>
-                        </div>
-                        <div class="box_for_buttons">
-                            <input  onclick="cansel_create_applic()" type="submit" class="button_decline" value="Отменить" />
-                            <input  onclick="send_create_applic()" type="submit" class="button_accept" value="Отправить" />
+                            <div class="regular_text">Максимальная срок:</div>
+                            <input class="small_input" type="number"  name="max_term" spellcheck="false" required>
+                            <div class="just_bold">дней.</div>
                         </div>
 
-                        </form>
+                        <div class="field_for_fill2">
+                            <div class="regular_text">Минимальный срок:</div>
+                            <input class="small_input" type="number"  name="min_term" spellcheck="false" required>
+                            <div class="just_bold">дней.</div>
+                        </div>
+                        <div class="box_for_buttons">
+                            <input onclick="cansel_create_applic()" type="submit" class="button_decline" value="Отменить" />
+                            <input type="submit" class="button_accept" value="Отправить" />
+                        </div>
+
+                </form>
                     </div>
 
 

@@ -58,6 +58,9 @@ form input {
 	outline:none;
     font-size: 26px;
     font-weight: 400;
+    border-radius: 5px;
+    border: none;
+    
 }
 
 .form_field {
@@ -134,6 +137,7 @@ button[type=submit] {
 	     -o-transition:0.2s ease all;
 	        transition:0.2s ease all;
     background-color: #21CC4E ;
+    border-radius: 5px;
 }
 
 .butsubmit {

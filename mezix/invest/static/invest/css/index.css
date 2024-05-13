@@ -16,7 +16,17 @@ body {
 textarea{
     font-size: 14px;
     font-weight: 600;
+    padding: 5px;
 }
+
+textarea::-webkit-scrollbar-track {
+	box-shadow: inset 0 0 0px rgba(0,0,0,0.3); 
+    margin-top: 0px;
+} 
+
+textarea::-webkit-scrollbar {
+	width: 6px;
+} 
 
 .overlay{
     display: flex;
@@ -602,6 +612,14 @@ textarea{
     height: 70%;
 }
 
+.text_mini{
+    margin-left: 8px;
+}
+
+.mini{
+    margin-left: 6px;
+}
+
 .button-close{
     background-color: #232138;
     border-radius: 8px;
@@ -687,6 +705,7 @@ input::-webkit-inner-spin-button {
     height: 100%;
     border:none ;
     resize: none;
+    border: 1.2px solid #21CC4E;
 }
 
 .flex_cont{

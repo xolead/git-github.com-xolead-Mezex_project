@@ -13,6 +13,11 @@ body {
     font-weight: 600;
 }
 
+textarea{
+    font-size: 14px;
+    font-weight: 600;
+}
+
 .overlay{
     display: flex;
     
@@ -232,6 +237,7 @@ body {
     border-top-left-radius:5px ;
     cursor: pointer;
     border-style: none;
+    user-select: none;
 }
 
 #strelka-vlevo{
@@ -239,6 +245,7 @@ body {
     height: 30px;
     margin-left: -5px;
     margin-top: -1px;
+    user-select: none;
 }
 
 .table-ebat{
@@ -579,12 +586,13 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    width: 270px;
+    width: 285px;
 }
 
 .text_down_main{
     font-size: 15px;
     font-weight: bold;
+    margin-top: 8px;
 }
 
 .text_modal_all{
@@ -623,6 +631,16 @@ body {
     width: 150px;
     height: 30px;
     padding-left: 6px;
+    margin-left: 81px;
+}
+
+.aboba_input{
+    margin-left: 0px;
+    background-color: #ffffff;
+}
+
+.aboba_input2{
+    margin-left: 92.8px;
 }
 
 input{
@@ -669,6 +687,10 @@ input::-webkit-inner-spin-button {
     height: 100%;
     border:none ;
     resize: none;
+}
+
+.flex_cont{
+    display: flex;
 }
 
 :active, :hover, :focus {

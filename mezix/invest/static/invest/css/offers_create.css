@@ -8,7 +8,7 @@ body, input, textarea, button {
 
 body {
     margin: 0px;
-    font-family: "Montserrat";
+    font-family: "Montserrat", "Inter";
     font-size: 12px;
     font-weight: 600;
 }
@@ -750,6 +750,17 @@ select option {
     cursor: pointer;
     width: 170px;
     margin-top: 15px;
+}
+
+select:hover{
+    option{
+        background-color: #21CC4E;
+    }
+    
+}
+
+option::after{
+    background-color: #21CC4E;
 }
 
 @media screen and (max-width: 2049px){

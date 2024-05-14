@@ -8,7 +8,7 @@ body, input, textarea, button {
 
 body {
     margin: 0px;
-    font-family: "Montserrat";
+    font-family: "Montserrat", "Inter";
     font-size: 12px;
     font-weight: 600;
 }

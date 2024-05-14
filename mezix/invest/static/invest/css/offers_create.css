@@ -752,17 +752,6 @@ select option {
     margin-top: 15px;
 }
 
-select:hover{
-    option{
-        background-color: #21CC4E;
-    }
-    
-}
-
-option::after{
-    background-color: #21CC4E;
-}
-
 @media screen and (max-width: 2049px){
     .flex-container{
         grid-template-columns:repeat(7,200px);

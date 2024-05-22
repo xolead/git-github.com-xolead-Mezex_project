@@ -111,8 +111,8 @@
                         
                                         <div class="text_main_create">Тип продукта: <div class="text_all_create">{{info.FinProduct}}</div></div>
                                         <div class="text_main_create">Тип актива: <div class="text_all_create">{{info.TypeActiv}}</div></div>
-                                        <div class="text_main_create">Вид Клиента: <div class="text_all_create">{{info.ViewActiv}}</div></div>
-                                        <div class="text_main_create">Тип Клиента: <div class="text_all_create">{{info.ViewClient}}</div></div>
+                                        <div class="text_main_create">Вид актива: <div class="text_all_create">{{info.ViewActiv}}</div></div>
+                                        <div class="text_main_create">Вид клиента: <div class="text_all_create">{{info.ViewClient}}</div></div>
                                         <div class="text_main_create">Максимальная сумма: <div class="text_all_create">{{info.max_sum}} руб.</div></div>
                                         <div class="text_main_create">Минимальная сумма: <div class="text_all_create">{{info.min_sum}} руб.</div></div>
                                         <div class="text_main_create">Максимальный срок: <div class="text_all_create">{{info.max_term}} дней.</div></div>
@@ -150,9 +150,10 @@
                                 <img src= {% static 'invest/img/green-triangle.png'%} class="arrow_for_select">
                                 <div class="small_green_vertical_line"></div>
                                 <select class="big_input_choise" name='FinProduct'>
-                                    <option input value ="1">Ипотека</option>
-                                    <option input value ="2">Лизинг</option>
+                                    <option input value ="4">Финансирование</option>
                                     <option input value ="3">Продажа</option>
+                                    <option input value ="2">Лизинг</option>
+                                    <option input value ="1">Ипотека</option>
                                 </select>
                             </div>
                         </div>
@@ -165,9 +166,10 @@
                                 <img src= {% static 'invest/img/green-triangle.png'%} class="arrow_for_select">
                                 <div class="small_green_vertical_line"></div>
                                 <select class="big_input_choise" name='TypeActiv'>
-                                    <option input value ="1">Недвижимость</option>
-                                    <option input value ="2">Транспортное средство</option>
-                                    <option input value ="3">Прицеп</option>
+                                    <option input value ="7">Иное имущество</option>
+                                    <option input value ="6">Комплексный актив</option>
+                                    <option input value ="5">Транспорт</option>
+                                    <option input value ="4">Недвижимость</option>
                                 </select>
                             </div>
                         </div>
@@ -178,9 +180,11 @@
                                 <img src= {% static 'invest/img/green-triangle.png'%} class="arrow_for_select">
                                 <div class="small_green_vertical_line"></div>
                                 <select class="big_input_choise" name='Activ'>
-                                    <option input value ="1">Недвижимость</option>
-                                    <option input value ="2">Движимость</option>
-                                    <option input value ="3">Инвестиция</option>
+                                    <option input value ="11">Кошка</option>
+                                    <option input value ="9">Офис</option>
+                                    <option input value ="8">Квартира</option>
+                                    <option input value ="7">Дом</option>
+                                    <option input value ="6">Легковая машина</option>
                                 </select>
                             </div>
                         </div>
@@ -193,8 +197,10 @@
                                 <img src= {% static 'invest/img/green-triangle.png'%} class="arrow_for_select">
                                 <div class="small_green_vertical_line"></div>
                                 <select class="big_input_choise" name='ViewClient'>
-                                    <option input value ="1">Физическое лицо</option>
-                                    <option input value ="2">Юридическое лицо</option>
+                                    <option input value ="14">Самозанятый</option>
+                                    <option input value ="13">Индивидуальный предприниматель</option>
+                                    <option input value ="12">Физическое лицо</option>
+                                    <option input value ="11">Юридическое лицо</option>
                                 </select>
                             </div>
                         </div>

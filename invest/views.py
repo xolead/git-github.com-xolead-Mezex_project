@@ -52,10 +52,10 @@ class CreateOutput():
         self.min_term = min_term
 @login_required
 def NewRequest(request):
-    idfin = request.POST.get('FinProduct', 1)
-    idtypeactiv = request.POST.get("TypeActiv", 1)
-    idviewclient = request.POST.get('ViewClient', 1)
-    idviewactiv = request.POST.get('ViewActiv', 1)
+    idfin = request.POST.get('FinProduct', 4)
+    idtypeactiv = request.POST.get("TypeActiv", 7)
+    idviewclient = int(request.POST.get('ViewClient', 11))
+    idviewactiv = int(request.POST.get('Activ', 11))
     min_summ = request.POST.get('min_summ', 1)
     max_summ = request.POST.get('max_summ', 1)
     max_ter = request.POST.get('max_term', 1)
@@ -64,7 +64,7 @@ def NewRequest(request):
     client = clients[0]
     investors = Investor.objects.filter(id_Account = client.id)
     investor = investors[0]
-    a = RequestInvestor(id_FinProduct = FinProduct.objects.get(pk=idfin), id_TypeActiv=TypeActiv.objects.get(pk=idtypeactiv), id_ViewClient= ViewClient.objects.get(pk=idviewclient), id_ViewActiv= ViewActiv.objects.get(pk=idviewactiv), max_sum=max_summ, min_sum=min_summ, max_term=max_ter, min_term=min_ter, id_Investor=investor, id_Status = Status.objects.get(pk=2))
+    a = RequestInvestor(id_FinProduct = FinProduct.objects.get(pk=idfin), id_TypeActiv=TypeActiv.objects.get(pk=idtypeactiv), id_ViewClient= ViewClient.objects.get(pk=idviewclient), id_ViewActiv=ViewActiv.objects.get(pk=idviewactiv), max_sum=max_summ, min_sum=min_summ, max_term=max_ter, min_term=min_ter, id_Investor=investor, id_Status = Status.objects.get(pk=2))
     a.save()
     return HttpResponseRedirect(reverse('create') )
 
